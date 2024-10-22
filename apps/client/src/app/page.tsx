@@ -1,23 +1,5 @@
 import { Card } from "@repo/ui/card"
 
-function Gradient({
-	conic,
-	className,
-	small,
-}: {
-	small?: boolean
-	conic?: boolean
-	className?: string
-}): JSX.Element {
-	return (
-		<span
-			className={`absolute rounded-[100%] mix-blend-normal will-change-[filter] ${
-				small ? "blur-[32px]" : "blur-[75px]"
-			} ${conic ? "bg-glow-conic" : ""} ${className}`}
-		/>
-	)
-}
-
 const LINKS = [
 	{
 		title: "Docs",
