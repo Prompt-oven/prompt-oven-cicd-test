@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Card } from "@repo/ui/card";
+import {lodash} from "@repo/library";
 
 function Gradient({
   conic,
@@ -10,6 +11,9 @@ function Gradient({
   conic?: boolean;
   className?: string;
 }): JSX.Element {
+
+  console.log("Gradient -- lodash test", lodash.isEmpty([]));
+
   return (
     <span
       className={`absolute mix-blend-normal will-change-[filter] rounded-[100%] ${
