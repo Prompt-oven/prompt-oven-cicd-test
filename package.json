@@ -17,5 +17,8 @@
   "engines": {
     "node": ">=18"
   },
-  "name": "with-tailwind"
+  "name": "with-tailwind",
+  "dependencies": {
+    "cookie": "1.0.1"
+  }
 }
