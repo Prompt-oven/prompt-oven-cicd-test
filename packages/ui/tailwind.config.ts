@@ -1,11 +1,11 @@
 import type { Config } from "tailwindcss";
 import sharedConfig from "@repo/tailwind-config";
-const { fontFamily } = require("tailwindcss/defaultTheme")
+
+const { fontFamily } = require("tailwindcss/defaultTheme");
 
 /** @type {import('tailwindcss').Config} */
 const config: Config = {
   content: ["./src/**/*.tsx"],
-  prefix: "ui-",
   presets: [sharedConfig],
   theme: {
     container: {
