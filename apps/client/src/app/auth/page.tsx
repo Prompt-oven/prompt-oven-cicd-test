@@ -1,3 +1,15 @@
 export default function page() {
-	return <section></section>
+	return (
+		<section>
+			<form>
+				<input type="text" />
+				<br />
+				<input type="text" />
+				<br />
+				<input type="text" />
+				<br />
+			</form>
+		</section>
+	)
 }
+
