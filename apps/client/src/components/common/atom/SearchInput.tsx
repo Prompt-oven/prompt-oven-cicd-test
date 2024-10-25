@@ -44,9 +44,10 @@ export default function SearchInput({
 				type="text"
 				placeholder={placeholder}
 				className="
-					h-[50px] flex-grow rounded-lg bg-[#1B1B1B] py-[15px] pl-5 pr-[120px] text-sm
-					text-[#969696] placeholder-[#969696] placeholder:font-normal focus:outline-none focus:ring-2
-					focus:ring-[#666666]
+					h-[50px] flex-grow rounded-lg
+					bg-[#1B1B1B] py-[15px] !pl-5 !pr-[120px] text-sm text-[#969696]
+					placeholder-[#969696] placeholder:font-normal
+					focus:outline-none focus:ring-2 focus:ring-[#666666]
 				"
 				style={{
 					fontFamily: "Roboto, sans-serif",
