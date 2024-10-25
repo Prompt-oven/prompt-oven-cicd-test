@@ -1,8 +1,8 @@
 import React from "react"
+import { Button } from "@repo/ui/button"
 import NavAnchor from "@/components/common/atom/NavAnchor"
 import GradientButton from "@/components/common/atom/GradientButton.tsx"
 import Avatar from "@/components/common/atom/Avatar.tsx"
-import { Button } from "@repo/ui/button"
 import SearchInput from "@/components/common/atom/SearchInput"
 import MainLogo from "@/components/common/atom/icon/MainLogo.tsx"
 

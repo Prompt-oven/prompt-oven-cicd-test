@@ -15,7 +15,8 @@
     "./input": "./src/Input.tsx",
     "./lucide": "./src/Lucide.tsx",
     "./label": "./src/Label.tsx",
-    "./radix-label": "./src/RadixLabel.tsx"
+    "./radix-label": "./src/RadixLabel.tsx",
+    "./radix-slot": "./src/RadixSlot.tsx"
   },
   "license": "MIT",
   "scripts": {
