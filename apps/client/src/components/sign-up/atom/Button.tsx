@@ -6,7 +6,9 @@ interface ValidateButtonProps {
 }
 
 function ValidateButton({ text }: ValidateButtonProps) {
+	console.log(text)
 	return <Button>{text}</Button>
+	
 }
 
 export default ValidateButton
