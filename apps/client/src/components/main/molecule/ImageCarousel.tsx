@@ -1,7 +1,8 @@
 "use client"
 
 import React, { useCallback, useEffect, useState } from "react"
-import { AnimatePresence, motion } from "framer-motion"
+import type { PanInfo } from "framer-motion"
+import { AnimatePresence, motion, useDragControls } from "framer-motion"
 
 const images = [
 	{
@@ -31,23 +32,28 @@ const images = [
 ]
 
 const SLIDE_DURATION = 5000 // 5 seconds
+const DRAG_THRESHOLD = 50 // Minimum drag distance to trigger slide change
 
 export default function ImageCarousel() {
 	const [currentIndex, setCurrentIndex] = useState(0)
 	const [direction, setDirection] = useState(0)
 	const [isHovered, setIsHovered] = useState(false)
+	const dragControls = useDragControls()
 
 	const nextSlide = useCallback(() => {
 		setDirection(1)
 		setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length)
 	}, [])
-	// const prevSlide = useCallback(() => {
-	// 	setDirection(-1)
-	// 	setCurrentIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length)
-	// }, [])
+
+	const prevSlide = useCallback(() => {
+		setDirection(-1)
+		setCurrentIndex(
+			(prevIndex) => (prevIndex - 1 + images.length) % images.length,
+		)
+	}, [])
 
 	useEffect(() => {
-		// eslint-disable-next-line no-undef -- NodeJS.Timeout is a Node.js type
+		// eslint-disable-next-line no-undef -- NodeJS.Timeout is a Node.js global
 		let timer: NodeJS.Timeout | null = null
 		if (!isHovered) {
 			timer = setInterval(() => {
@@ -61,6 +67,20 @@ export default function ImageCarousel() {
 
 	const handleMouseEnter = () => setIsHovered(true)
 	const handleMouseLeave = () => setIsHovered(false)
+
+	const handleDragEnd = (
+		event: MouseEvent | TouchEvent | PointerEvent,
+		info: PanInfo,
+	) => {
+		const { offset, velocity } = info
+		if (Math.abs(offset.x) > DRAG_THRESHOLD || Math.abs(velocity.x) > 500) {
+			if (offset.x > 0) {
+				prevSlide()
+			} else {
+				nextSlide()
+			}
+		}
+	}
 
 	const variants = {
 		enter: (_direction: number) => {
@@ -120,6 +140,11 @@ export default function ImageCarousel() {
 							x: { type: "spring", stiffness: 300, damping: 30 },
 							opacity: { duration: 0.2 },
 						}}
+						drag="x"
+						dragControls={dragControls}
+						dragConstraints={{ left: 0, right: 0 }}
+						dragElastic={1}
+						onDragEnd={handleDragEnd}
 					/>
 				</AnimatePresence>
 				<div className="absolute bottom-4 left-8 right-8 flex items-center justify-between">
