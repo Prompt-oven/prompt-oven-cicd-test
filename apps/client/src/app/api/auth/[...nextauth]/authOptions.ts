@@ -1,5 +1,5 @@
 import CredentialsProvider from "next-auth/providers/credentials"
-import { NextAuthOptions } from "next-auth"
+import type { NextAuthOptions } from "next-auth"
 import { signInAction } from "@/app/action/auth/signInAction"
 import type { authMemberType } from "@/app/types/authMemberType"
 
@@ -22,8 +22,8 @@ export const authOptions: NextAuthOptions = {
 				if (!isCredentialsExist(credentials)) return null
 
 				const res = await signInAction({
-					signinEmail: credentials?.loginId as string,
-					password: credentials?.password as string,
+					signinEmail: credentials!.loginId as string,
+					password: credentials!.password as string,
 				})
 
 				if (res.ok) {

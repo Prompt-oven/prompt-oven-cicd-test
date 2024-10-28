@@ -1,6 +1,6 @@
 "use server"
 
-import type { loginSchemaType } from "../../../lib/schema/authSchema"
+import type { loginSchemaType } from "@/lib/schema/authSchema"
 
 export async function signInAction(data: loginSchemaType): Promise<Response> {
 	return await fetch(`localhost:4000`, {
