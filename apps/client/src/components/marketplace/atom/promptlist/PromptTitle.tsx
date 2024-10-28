@@ -1,9 +1,7 @@
-import React from 'react'
+import React from "react"
 
 function PromptTitle() {
-  return (
-    <div>PromptTitle</div>
-  )
+	return <div>PromptTitle</div>
 }
 
 export default PromptTitle

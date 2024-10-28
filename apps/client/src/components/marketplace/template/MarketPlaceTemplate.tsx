@@ -1,12 +1,14 @@
-import React from 'react'
-import FilterSideBar from '../organism/FilterSideBar'
-import PromptList from '../organism/PromptList'
+import React from "react"
+import FilterSideBar from "../organism/FilterSideBar"
+import PromptList from "../organism/PromptList"
 
 function MarketPlaceTemplate() {
-  return (
-    <div><FilterSideBar/>
-    <PromptList/></div>
-  )
+	return (
+		<div>
+			<FilterSideBar />
+			<PromptList />
+		</div>
+	)
 }
 
 export default MarketPlaceTemplate
