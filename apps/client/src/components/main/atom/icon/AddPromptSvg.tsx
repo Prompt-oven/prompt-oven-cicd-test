@@ -5,7 +5,7 @@ interface AddPromptProps {
 	height?: string | number
 }
 
-function AddPrompt({ width = "50", height = "50" }: AddPromptProps) {
+function AddPromptSvg({ width = "50", height = "50" }: AddPromptProps) {
 	return (
 		<svg
 			width={width}
@@ -33,4 +33,4 @@ function AddPrompt({ width = "50", height = "50" }: AddPromptProps) {
 	)
 }
 
-export default AddPrompt
+export default AddPromptSvg

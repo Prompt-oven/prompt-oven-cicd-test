@@ -5,7 +5,7 @@ interface AddFolderProps {
 	height?: string | number
 }
 
-function AddFolder({ width = "50", height = "50" }: AddFolderProps) {
+function AddFolderSvg({ width = "50", height = "50" }: AddFolderProps) {
 	return (
 		<svg
 			width={width}
@@ -33,4 +33,4 @@ function AddFolder({ width = "50", height = "50" }: AddFolderProps) {
 	)
 }
 
-export default AddFolder
+export default AddFolderSvg

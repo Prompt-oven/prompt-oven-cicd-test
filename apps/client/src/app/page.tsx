@@ -1,9 +1,9 @@
 import MainHeader from "@/components/main/molecule/MainHeader.tsx"
 import FeatureDescription from "@/components/main/atom/FeatureDescription.tsx"
 import AccountSvg from "@/components/main/atom/icon/AccountSvg.tsx"
-import AddFolder from "@/components/main/atom/icon/AddFolder.tsx"
-import AddPrompt from "@/components/main/atom/icon/AddPrompt.tsx"
-import Sale from "@/components/main/atom/icon/Sale.tsx"
+import AddFolderSvg from "@/components/main/atom/icon/AddFolderSvg.tsx"
+import AddPromptSvg from "@/components/main/atom/icon/AddPromptSvg.tsx"
+import SaleSvg from "@/components/main/atom/icon/SaleSvg.tsx"
 import FeatureDescriptionContainer from "@/components/main/atom/FeatureDescriptionContainer.tsx"
 
 const steps = [
@@ -14,19 +14,19 @@ const steps = [
 			"Malesuada pellentesque elit eget gravida cum sociis natoque penatibus. Proin libero nunc consequat interdum.",
 	},
 	{
-		icon: <AddFolder />,
+		icon: <AddFolderSvg />,
 		title: "Create your collection",
 		description:
 			"Consectetur adipiscing elit ut aliquam purus sit amet luctus venenatis. Risus nullam eget felis eget nunc lobortis.",
 	},
 	{
-		icon: <AddPrompt />,
+		icon: <AddPromptSvg />,
 		title: "Add your PROMPT",
 		description:
 			"Volutpat commodo sed egestas egestas. Mollis aliquam ut porttitor leo a diam sollicitudin tempor.",
 	},
 	{
-		icon: <Sale />,
+		icon: <SaleSvg />,
 		title: "List them for sale",
 		description:
 			"Diam sit amet nisl suscipit adipiscing bibendum est. Porttitor eget dolor morbi non arcu risus quis varius quam.",

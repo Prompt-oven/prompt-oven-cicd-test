@@ -5,7 +5,7 @@ interface SaleProps {
 	height?: string | number
 }
 
-function Sale({ width = "50", height = "50" }: SaleProps) {
+function SaleSvg({ width = "50", height = "50" }: SaleProps) {
 	return (
 		<svg
 			width={width}
@@ -38,4 +38,4 @@ function Sale({ width = "50", height = "50" }: SaleProps) {
 	)
 }
 
-export default Sale
+export default SaleSvg
