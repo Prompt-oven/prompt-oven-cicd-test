@@ -4,7 +4,7 @@ import { Checkbox } from "@repo/ui/checkbox"
 function FilterOption() {
 	return (
 		<div>
-			Product
+			Products
 			<div>
 				<Checkbox />
 				Prompts
