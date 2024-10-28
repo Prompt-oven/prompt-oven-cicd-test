@@ -1,26 +1,19 @@
 "use client"
 
 import * as React from "react"
-import * as LabelPrimitive from "@repo/ui/radix-label"
-import { Slot } from "@radix-ui/react-slot"
-import {
-	Controller,
-	ControllerProps,
-	FieldPath,
-	FieldValues,
-	FormProvider,
-	useFormContext,
-} from "react-hook-form"
-
-import { cn } from "@/lib/utils"
+import type * as LabelPrimitive from "@repo/ui/radix-label"
+import { Slot } from "@repo/ui/radix-slot"
+import type { ControllerProps, FieldPath, FieldValues } from "react-hook-form"
+import { Controller, FormProvider, useFormContext } from "react-hook-form"
 import { Label } from "@repo/ui/label"
+import { cn } from "@/lib/utils"
 
 const Form = FormProvider
 
-type FormFieldContextValue<
+interface FormFieldContextValue<
 	TFieldValues extends FieldValues = FieldValues,
 	TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
-> = {
+> {
 	name: TName
 }
 
@@ -28,12 +21,10 @@ const FormFieldContext = React.createContext<FormFieldContextValue>(
 	{} as FormFieldContextValue,
 )
 
-const FormField = <
+function FormField<
 	TFieldValues extends FieldValues = FieldValues,
 	TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
->({
-	...props
-}: ControllerProps<TFieldValues, TName>) => {
+>({ ...props }: ControllerProps<TFieldValues, TName>) {
 	return (
 		<FormFieldContext.Provider value={{ name: props.name }}>
 			<Controller {...props} />
@@ -48,6 +39,7 @@ const useFormField = () => {
 
 	const fieldState = getFieldState(fieldContext.name, formState)
 
+	// eslint-disable-next-line @typescript-eslint/no-unnecessary-condition -- This directive is necessary to prevent false positives when checking for unnecessary conditions.
 	if (!fieldContext) {
 		throw new Error("useFormField should be used within <FormField>")
 	}
@@ -64,7 +56,7 @@ const useFormField = () => {
 	}
 }
 
-type FormItemContextValue = {
+interface FormItemContextValue {
 	id: string
 }
 
@@ -114,11 +106,9 @@ const FormControl = React.forwardRef<
 			ref={ref}
 			id={formItemId}
 			aria-describedby={
-				!error
-					? `${formDescriptionId}`
-					: `${formDescriptionId} ${formMessageId}`
+				!error ? formDescriptionId : `${formDescriptionId} ${formMessageId}`
 			}
-			aria-invalid={!!error}
+			aria-invalid={Boolean(error)}
 			{...props}
 		/>
 	)
@@ -147,7 +137,7 @@ const FormMessage = React.forwardRef<
 	React.HTMLAttributes<HTMLParagraphElement>
 >(({ className, children, ...props }, ref) => {
 	const { error, formMessageId } = useFormField()
-	const body = error ? String(error?.message) : children
+	const body = error ? String(error.message) : children
 
 	if (!body) {
 		return null

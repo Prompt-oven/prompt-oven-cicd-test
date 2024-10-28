@@ -6,12 +6,10 @@
 		"paths": {
 			"@/*": ["./src/*"],
 			"@/app/*": ["./src/app/*"],
-			"@/assets/*": ["./src/assets/*"],
 			"@/shared/*": ["./src/shared/*"],
-			"@/entity/*": ["./src/entity/*"],
-			"@/feature/*": ["./src/feature/*"],
-			"@/widget/*": ["./src/widget/*"],
-			"@/page/*": ["./src/page/*"]
+			"@/components/*": ["./src/components/*"],
+			"@/assets/*": ["./assets/*"],
+			"@/lib/*": ["./src/lib/*"],
 		}
 	},
 	"include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
