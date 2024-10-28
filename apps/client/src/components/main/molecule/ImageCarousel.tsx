@@ -35,31 +35,37 @@ const SLIDE_DURATION = 5000 // 5 seconds
 export default function ImageCarousel() {
 	const [currentIndex, setCurrentIndex] = useState(0)
 	const [direction, setDirection] = useState(0)
+	const [isHovered, setIsHovered] = useState(false)
 
 	const nextSlide = useCallback(() => {
 		setDirection(1)
 		setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length)
 	}, [])
-
-	const prevSlide = useCallback(() => {
-		setDirection(-1)
-		setCurrentIndex(
-			(prevIndex) => (prevIndex - 1 + images.length) % images.length,
-		)
-	}, [])
+	// const prevSlide = useCallback(() => {
+	// 	setDirection(-1)
+	// 	setCurrentIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length)
+	// }, [])
 
 	useEffect(() => {
-		const timer = setInterval(() => {
-			nextSlide()
-		}, SLIDE_DURATION)
+		// eslint-disable-next-line no-undef -- NodeJS.Timeout is a Node.js type
+		let timer: NodeJS.Timeout | null = null
+		if (!isHovered) {
+			timer = setInterval(() => {
+				nextSlide()
+			}, SLIDE_DURATION)
+		}
+		return () => {
+			if (timer) clearInterval(timer)
+		}
+	}, [nextSlide, isHovered])
 
-		return () => clearInterval(timer)
-	}, [nextSlide])
+	const handleMouseEnter = () => setIsHovered(true)
+	const handleMouseLeave = () => setIsHovered(false)
 
 	const variants = {
-		enter: (direction: number) => {
+		enter: (_direction: number) => {
 			return {
-				x: direction > 0 ? 1000 : -1000,
+				x: _direction > 0 ? 1000 : -1000,
 				opacity: 0,
 			}
 		},
@@ -68,17 +74,20 @@ export default function ImageCarousel() {
 			x: 0,
 			opacity: 1,
 		},
-		exit: (direction: number) => {
+		exit: (_direction: number) => {
 			return {
 				zIndex: 0,
-				x: direction < 0 ? 1000 : -1000,
+				x: _direction < 0 ? 1000 : -1000,
 				opacity: 0,
 			}
 		},
 	}
 
 	return (
-		<div className="relative h-[660px] w-[660px]">
+		<div
+			className="relative h-[660px] w-[660px]"
+			onMouseEnter={handleMouseEnter}
+			onMouseLeave={handleMouseLeave}>
 			{/* Tilted pink rectangle */}
 			<div
 				className="absolute h-full w-full rounded-lg bg-gradient-to-r from-[#A913F9] to-[#F913C4]"
@@ -87,7 +96,8 @@ export default function ImageCarousel() {
 					top: "0px",
 					left: "0px",
 					zIndex: -1,
-				}}></div>
+				}}
+			/>
 
 			{/* Main content */}
 			<div className="absolute inset-0 overflow-hidden rounded-lg bg-[#161616]">
@@ -118,16 +128,17 @@ export default function ImageCarousel() {
 							{images[currentIndex].title}
 						</h2>
 						<div className="mt-2 flex items-center">
-							<div className="mr-2 h-8 w-8 rounded-full bg-[#C4C4C4]"></div>
+							<div className="mr-2 h-8 w-8 rounded-full bg-[#C4C4C4]" />
 							<span className="font-roboto text-sm font-medium text-white">
 								{images[currentIndex].creator}
 							</span>
 						</div>
 					</div>
 					<div className="flex space-x-4">
-						{images.map((_, index) => (
+						{images.map((button, index) => (
 							<button
-								key={index}
+								type="button"
+								key={button.title}
 								className={`h-2.5 w-2.5 rounded-full ${
 									index === currentIndex
 										? "border border-[#FCB808]"
