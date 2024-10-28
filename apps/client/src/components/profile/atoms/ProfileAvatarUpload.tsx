@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import Image from "next/image"
 
 export default function ProfileAvatarUpload() {
-	const [selectedFile, setSelectedFile] = useState<File | null>(null)
+	const [_, setSelectedFile] = useState<File | null>(null)
 	const [previewUrl, setPreviewUrl] = useState<string | null>(null)
 
 	const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {

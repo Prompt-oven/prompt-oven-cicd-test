@@ -23,7 +23,7 @@ export default function ProfileEditInfo() {
 				<p className="text-sm font-bold text-white">Username</p>
 				<p className="mb-2 text-xs text-gray-500">
 					You can update your username in your
-					<Link href={"/account"}>
+					<Link href="/account">
 						<span className="underline"> Account Settings.</span>
 					</Link>
 				</p>

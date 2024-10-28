@@ -3,7 +3,7 @@ import ProfileListTitle from "../atoms/ProfileListTitle"
 import ProfileListItem from "../atoms/ProfileListItem"
 
 interface NewestListProps {
-	list: String[]
+	list: string[]
 }
 
 export default function ProfileNewestPromptList({ list }: NewestListProps) {

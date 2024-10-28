@@ -2,7 +2,7 @@ import ProfileListItem from "../atoms/ProfileListItem"
 import ProfileListTitle from "../atoms/ProfileListTitle"
 
 interface FavoliteListProps {
-	list: String[]
+	list: string[]
 }
 
 export default function ProfileFavoritePromptList({ list }: FavoliteListProps) {
