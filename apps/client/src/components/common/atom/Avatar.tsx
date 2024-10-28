@@ -1,4 +1,4 @@
-import React from "react"
+import type { ComponentPropsWithoutRef } from "react"
 import {
 	Avatar as ShadcnAvatar,
 	AvatarFallback,
@@ -7,8 +7,7 @@ import {
 import { User } from "@repo/ui/lucide"
 import { cn } from "@/lib/utils"
 
-interface AvatarProps
-	extends React.ComponentPropsWithoutRef<typeof ShadcnAvatar> {
+interface AvatarProps extends ComponentPropsWithoutRef<typeof ShadcnAvatar> {
 	size?: number
 	src?: string
 	alt?: string
@@ -30,13 +29,13 @@ export default function Avatar({
 			)}
 			style={{ width: `${size}px`, height: `${size}px` }}
 			{...props}>
-			{src && (
+			{src ? (
 				<AvatarImage
 					src={src}
 					alt={alt || "User avatar"}
 					className="object-cover"
 				/>
-			)}
+			) : null}
 			<AvatarFallback className="bg-transparent">
 				<User
 					className="text-[#969696]"

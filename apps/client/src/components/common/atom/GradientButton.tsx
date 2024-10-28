@@ -1,10 +1,9 @@
-import React from "react"
+import type { ButtonHTMLAttributes, ReactNode } from "react"
 import { Button } from "@repo/ui/button"
 import { cn } from "@/lib/utils"
 
-interface GradientButtonProps
-	extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-	children?: React.ReactNode
+interface GradientButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+	children?: ReactNode
 	className?: string
 }
 
