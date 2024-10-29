@@ -1,7 +1,6 @@
 "use client"
 
 import type { AnchorHTMLAttributes, ReactNode } from "react"
-
 import { useCallback, useState } from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
@@ -22,7 +21,6 @@ export default function NavAnchor({
 }: NavAnchorProps) {
 	const pathname = usePathname()
 	const isActive = pathname === href
-
 	const [isHovered, setIsHovered] = useState(false)
 
 	const handleMouseEnter = useCallback(() => setIsHovered(true), [])
