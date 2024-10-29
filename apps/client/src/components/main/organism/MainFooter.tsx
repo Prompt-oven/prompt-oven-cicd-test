@@ -1,14 +1,9 @@
 import React from "react"
-import { Input } from "@repo/ui/input"
 import Link from "next/link"
-import FacebookSvg from "@/components/main/atom/icon/FacebookSvg.tsx"
-import InstagramSvg from "@/components/main/atom/icon/InstagramSvg.tsx"
-import LinkedInSvg from "@/components/main/atom/icon/LinkedInSvg.tsx"
-import YoutubeSvg from "@/components/main/atom/icon/YoutubeSvg.tsx"
-import DiscordSvg from "@/components/main/atom/icon/DiscordSvg.tsx"
+import NavAnchor from "@/components/common/atom/NavAnchor.tsx"
 import FooterLogo from "@/components/common/atom/icon/FooterLogo.tsx"
-
-const svgList = [FacebookSvg, InstagramSvg, YoutubeSvg, DiscordSvg, LinkedInSvg]
+import IconLinkContainer from "@/components/main/molecule/IconLinkContainer.tsx"
+import EmailInput from "@/components/common/atom/EmailInput.tsx"
 
 function MainFooter() {
 	return (
@@ -20,30 +15,14 @@ function MainFooter() {
 						<div className="mb-8 xl:mb-0 xl:w-[670px]">
 							<h3 className="mb-4 text-2xl font-semibold">Stay in the loop</h3>
 							<div className="flex">
-								<Input
-									type="email"
-									placeholder="Email here..."
-									className="flex-grow rounded-r-none"
-								/>
-								{/*<Button type="submit" className="rounded-l-none bg-gray-800 hover:bg-gray-700">*/}
-								{/*	<Send className="h-4 w-4"/>*/}
-								{/*</Button>*/}
+								<EmailInput />
 							</div>
 						</div>
 						<div className="xl:w-[670px]">
 							<h3 className="mb-4 text-2xl font-semibold">
 								Join the community
 							</h3>
-							<div className="flex flex-wrap gap-4">
-								{svgList.map((Icon, index) => (
-									<Link
-										key={index}
-										href="#"
-										className={`rounded-md p-3 ${index === 1 ? "bg-yellow-500" : "bg-gray-800"}`}>
-										<Icon />
-									</Link>
-								))}
-							</div>
+							<IconLinkContainer />
 						</div>
 					</div>
 				</div>
@@ -61,6 +40,7 @@ function MainFooter() {
 
 					<div className="grid grid-cols-1 gap-8 md:grid-cols-3 lg:w-3/4">
 						{["My account", "Resources", "Company"].map((title, index) => (
+							// eslint-disable-next-line react/no-array-index-key -- index is unique
 							<div key={index}>
 								<h3 className="mb-4 mt-9 text-lg font-semibold">{title}</h3>
 								<ul className="space-y-2">
@@ -80,12 +60,15 @@ function MainFooter() {
 									]
 										.slice(index * 4, (index + 1) * 4)
 										.map((item, i) => (
+											// eslint-disable-next-line react/no-array-index-key -- index is unique
 											<li key={i}>
-												<Link
+												<NavAnchor
 													href="#"
-													className={`text-sm ${item === "My Collections" ? "text-yellow-500" : "text-gray-400"} hover:text-white`}>
+													className="text-sm"
+													activeColor="#FCB808"
+													color="#FFFFFF">
 													{item}
-												</Link>
+												</NavAnchor>
 											</li>
 										))}
 								</ul>

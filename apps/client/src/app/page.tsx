@@ -1,5 +1,5 @@
 import MainHeader from "@/components/main/molecule/MainHeader.tsx"
-import MainFooter from "@/components/main/molecule/MainFooter.tsx"
+import MainFooter from "@/components/main/organism/MainFooter.tsx"
 
 export default function Page() {
 	return (
