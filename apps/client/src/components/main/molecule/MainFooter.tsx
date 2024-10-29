@@ -10,15 +10,13 @@ import FooterLogo from "@/components/common/atom/icon/FooterLogo.tsx"
 
 const svgList = [FacebookSvg, InstagramSvg, YoutubeSvg, DiscordSvg, LinkedInSvg]
 
-interface MainFooterProps {}
-
-function MainFooter(props: MainFooterProps) {
+function MainFooter() {
 	return (
-		<footer className="bg-black pb-8 pt-16 text-white">
+		<footer className="bg-black pt-16 text-white">
 			{/* Footer content */}
 			<div className="container mx-auto px-4">
 				<div className="mb-16">
-					<div className="xl:flex xl:justify-between">
+					<div className="gap-20 xl:flex xl:justify-between">
 						<div className="mb-8 xl:mb-0 xl:w-[670px]">
 							<h3 className="mb-4 text-2xl font-semibold">Stay in the loop</h3>
 							<div className="flex">
@@ -96,11 +94,12 @@ function MainFooter(props: MainFooterProps) {
 					</div>
 				</div>
 
-				<div className="mt-16 flex flex-col items-center justify-between border-t border-gray-800 pt-8 md:flex-row">
+				{/* bottom of footer */}
+				<div className="mt-16 flex flex-col items-center justify-between border-t border-gray-800 py-[25px] md:!flex-row">
 					<p className="text-sm text-gray-400">
 						chikchok © 2024 prompt oven. All rights reserved.
 					</p>
-					<p className="mt-4 text-sm text-gray-400 md:mt-0">
+					<p className="mt-1 text-sm text-gray-400 md:mt-0">
 						<Link href="#" className="hover:text-white">
 							Privacy policy
 						</Link>{" "}
