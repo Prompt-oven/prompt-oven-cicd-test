@@ -1,1 +1,1 @@
-export { User, Search, ArrowRight } from "lucide-react";
+export { User, Search, ChevronLeft, ChevronRight, ArrowRight } from "lucide-react";

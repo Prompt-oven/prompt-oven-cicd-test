@@ -16,7 +16,7 @@ export default function NavAnchor({
 	href,
 	children,
 	color = "#D9D9D9",
-	activeColor = "#A913F9",
+	activeColor,
 	...props
 }: NavAnchorProps) {
 	const pathname = usePathname()
