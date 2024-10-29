@@ -2,6 +2,7 @@ import MainHeader from "@/components/main/molecule/MainHeader.tsx"
 import MainFooter from "@/components/main/organism/MainFooter.tsx"
 import ImageCarousel from "@/components/main/molecule/ImageCarousel.tsx"
 import CategoryList from "@/components/main/molecule/CategoryList.tsx"
+import NotableDrop from "@/components/main/molecule/NotableDrop.tsx"
 
 const promptCategories = [
 	{
@@ -42,6 +43,18 @@ export default function Page() {
 				<ImageCarousel />
 				<div className="py-10">
 					<CategoryList categories={promptCategories} />
+				</div>
+				<div className="py-10">
+					<NotableDrop
+						tag="NEW"
+						bgImage="/img/main/notableDrop1.png"
+						title="Colourfull assests"
+						description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt"
+						author={{
+							name: "@robix2x2x",
+							profile: "/img/main/notableDropAvatar1.png",
+						}}
+					/>
 				</div>
 			</div>
 			<MainFooter />
