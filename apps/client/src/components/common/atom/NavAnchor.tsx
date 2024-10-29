@@ -1,6 +1,7 @@
 "use client"
 
 import type { AnchorHTMLAttributes, ReactNode } from "react"
+import { useCallback, useState } from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 
@@ -20,18 +21,20 @@ export default function NavAnchor({
 }: NavAnchorProps) {
 	const pathname = usePathname()
 	const isActive = pathname === href
+	const [isHovered, setIsHovered] = useState(false)
 
-	const colorPrefix = "text-"
-	const textColor = `${colorPrefix}[${isActive ? activeColor : color}]`
+	const handleMouseEnter = useCallback(() => setIsHovered(true), [])
+	const handleMouseLeave = useCallback(() => setIsHovered(false), [])
+
+	const currentColor = isActive || isHovered ? activeColor : color
 
 	return (
 		<Link
 			href={href}
-			className={[
-				"hover: text-lg font-bold transition-colors duration-200",
-				`hover:text-[${activeColor}]`,
-				textColor,
-			].join(" ")}
+			className="text-lg font-bold transition-colors duration-200"
+			style={{ color: currentColor }}
+			onMouseEnter={handleMouseEnter}
+			onMouseLeave={handleMouseLeave}
 			{...props}>
 			{children}
 		</Link>
