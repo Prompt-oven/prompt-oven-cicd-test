@@ -115,12 +115,12 @@ export default function ImageCarousel() {
 					transform: "rotate(-3.98deg)",
 					top: "0px",
 					left: "0px",
-					zIndex: -1,
+					zIndex: 0,
 				}}
 			/>
 
 			{/* Main content */}
-			<div className="absolute inset-0 overflow-hidden rounded-lg bg-[#161616]">
+			<div className="absolute inset-0 z-[1] overflow-hidden rounded-lg bg-[#161616]">
 				<AnimatePresence initial={false} custom={direction}>
 					<motion.img
 						key={currentIndex}
