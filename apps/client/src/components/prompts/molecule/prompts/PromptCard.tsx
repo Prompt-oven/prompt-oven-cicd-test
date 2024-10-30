@@ -1,8 +1,8 @@
 import React from "react"
-import PromptThumbnail from "../../atom/promptlist/PromptThumbnail"
-import PromptLLMLabel from "../../atom/promptlist/PromptLLMLabel"
-import PromptTitle from "../../atom/promptlist/PromptTitle"
-import PromptPrice from "../../atom/promptlist/PromptPrice"
+import PromptThumbnail from "../../atom/prompts/PromptThumbnail"
+import PromptLLMLabel from "../../atom/prompts/PromptLLMLabel"
+import PromptTitle from "../../atom/prompts/PromptTitle"
+import PromptPrice from "../../atom/prompts/PromptPrice"
 
 interface PromptCardProps {
 	title: string

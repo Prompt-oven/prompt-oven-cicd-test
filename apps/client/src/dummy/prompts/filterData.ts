@@ -1,4 +1,4 @@
-import { FilterData, ActiveFilter } from "@/types/marketplace/marketPlaceType"
+import { FilterData, ActiveFilter } from "@/types/prompts/marketPlaceType"
 
 const initialFilters: FilterData = {
 	product: ["Prompts", "Apps"],

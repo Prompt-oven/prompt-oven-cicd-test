@@ -1,7 +1,7 @@
 import React from "react"
-import PromptCard from "../molecule/promptlist/PromptCard"
+import PromptCard from "../molecule/prompts/PromptCard"
 // import HoverPromptDetail from "../molecule/HoverPromptDetail"
-import { PromptType } from "@/types/marketplace/marketPlaceType"
+import { PromptType } from "@/types/prompts/marketPlaceType"
 
 interface PromptListProps {
 	prompts: PromptType[]

@@ -1,4 +1,4 @@
-import { PromptType } from "@/types/marketplace/marketPlaceType"
+import { PromptType } from "@/types/prompts/marketPlaceType"
 
 const promptListData: PromptType[] = [
 	{
