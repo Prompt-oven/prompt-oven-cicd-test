@@ -27,7 +27,7 @@ export default function Seller({
 		typeof earnings === "number" ? earnings.toLocaleString() : "0"
 
 	return (
-		<Card className="relative box-border flex h-[90px] w-[268px] items-center rounded-[10px] border-[#424242] bg-[#111111] py-5 pl-[15px] pr-5 hover:border-[#FCB808]">
+		<Card className="relative box-border flex h-[90px] min-w-[220px] max-w-[345px]  items-center rounded-[10px] border-[#424242] bg-[#111111] py-5 pl-[15px] pr-5 hover:border-[#FCB808]">
 			<span className="font-roboto text-[15px] font-normal leading-[20px] text-[#969696]">
 				{displayNumber}
 			</span>

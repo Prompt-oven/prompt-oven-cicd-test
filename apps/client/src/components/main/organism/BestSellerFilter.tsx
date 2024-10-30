@@ -15,7 +15,7 @@ interface BestSellerFilterProps {
 function BestSellerFilter({ sellers }: BestSellerFilterProps) {
 	return (
 		<div className="mx-auto w-full max-w-[1420px]">
-			<div className="mb-8 flex flex-col items-start justify-between gap-4 sm:!flex-row sm:!items-center sm:!gap-0">
+			<div className="mb-8 flex flex-row items-center justify-between gap-4 sm:!gap-0">
 				<h2 className="flex items-center gap-2 text-[28px] font-semibold text-white sm:text-[32px] lg:text-[38px]">
 					Best sellers
 				</h2>
