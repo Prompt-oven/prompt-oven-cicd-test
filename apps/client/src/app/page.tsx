@@ -1,4 +1,4 @@
-import MainHeader from "@/components/main/molecule/MainHeader.tsx"
+import { Button } from "@repo/ui/button"
 import FeatureDescription from "@/components/main/atom/FeatureDescription.tsx"
 import AccountSvg from "@/components/main/atom/icon/AccountSvg.tsx"
 import AddFolderSvg from "@/components/main/atom/icon/AddFolderSvg.tsx"
@@ -7,7 +7,6 @@ import SaleSvg from "@/components/main/atom/icon/SaleSvg.tsx"
 import FeatureDescriptionContainer from "@/components/main/atom/FeatureDescriptionContainer.tsx"
 import ImageCarousel from "@/components/main/molecule/ImageCarousel.tsx"
 import CategoryList from "@/components/main/molecule/CategoryList.tsx"
-import NotableDrop from "@/components/main/molecule/NotableDrop.tsx"
 import NotableDropsCarousel from "@/components/main/organism/NotableDropsCarousel.tsx"
 import MainFooter from "@/components/main/organism/MainFooter.tsx"
 import BestSellerFilter from "@/components/main/organism/BestSellerFilter.tsx"
@@ -103,49 +102,65 @@ const sellers = [
 export default function Page() {
 	return (
 		<main className="flex min-h-screen flex-col items-center justify-between bg-[#111111]">
-			<MainHeader />
-
-			<div className="flex w-full flex-col items-center justify-center gap-20 p-8">
+			<div className="flex w-full items-center justify-center gap-[100px] py-40">
 				<ImageCarousel />
 
-				<div className="flex h-[1000px] w-full items-center justify-center p-8">
-					<div>
-						<FeatureDescriptionContainer>
-							{steps.map((step, index) => (
-								<FeatureDescription
-									key={index}
-									icon={step.icon}
-									title={step.title}
-									description={step.description}
-								/>
-							))}
-						</FeatureDescriptionContainer>
+				{/* todo - 이미지 카로셀과 연관된 데이터가 필요하므로 ImageCarousel 컴포넌트와 같이 구성된 새로운 컴포넌트 또는 해당 컴포넌트로 옮길 필요가 있음 */}
+				<div className=" relative max-w-[724px]">
+					<h1 className="mb-6 font-sora text-[55px] font-semibold leading-[64px] text-white">
+						Eva Sheppard | AI https://t.me/neirolapki
+					</h1>
+
+					<p className="mb-8 font-sora text-[19px] leading-[28px] text-[#969696]">
+						Ai Prompts Для заказов и сотрудничества ⬇️ @Eva_Sheppard ⚡Промты
+						для нейросетей⚡ #Midjourney prompts. #Шедеврум промты. Stable
+						Diffusion. Канал для вдохновения 💜 #Midjourney ⬇️
+						http://clck.ru/3BCUnQ
+					</p>
+
+					<div className="flex gap-4">
+						<Button className="h-[50px] w-[152px] bg-gradient-to-r from-[#A913F9] to-[#3F5EFB] font-sora text-[15px] font-semibold">
+							ADD CART
+						</Button>
+						<Button
+							variant="outline"
+							className="h-[50px] w-[118px] border-[#424242] bg-[#111111] font-sora text-[15px] font-semibold text-white">
+							Share
+						</Button>
 					</div>
 				</div>
+			</div>
 
-				<div className="py-10">
-					<CategoryList categories={promptCategories} />
+			<div className="w-full py-32">
+				<NotableDropsCarousel items={notableDrops} />
+			</div>
+
+			<div className="w-full">
+				<BestSellerFilter sellers={sellers} />
+			</div>
+
+			<div className="py-32">
+				<CategoryList categories={promptCategories} />
+			</div>
+
+			<div className="mb-20 flex w-full flex-col items-center justify-center">
+				<div className="relative mb-[60px] flex w-full items-center justify-center overflow-hidden">
+					<span className="inline-block whitespace-nowrap bg-gradient-to-r from-[#A913F9] to-[#FC466B] bg-clip-text font-sora text-[200px] font-semibold uppercase leading-[90%] tracking-tight text-transparent">
+						CREATE & SELL YOU
+					</span>
 				</div>
-
-				<div className="py-10">
-					<NotableDrop
-						tag="NEW"
-						bgImage="/img/main/notableDrop1.png"
-						title="Colourfull assests"
-						description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt"
-						author={{
-							name: "@robix2x2x",
-							profile: "/img/main/notableDropAvatar1.png",
-						}}
-					/>
-				</div>
-
-				<div className="w-full py-10">
-					<NotableDropsCarousel items={notableDrops} />
-				</div>
-
-				<div className="w-full py-10">
-					<BestSellerFilter sellers={sellers} />
+				<div className="max-w-[1420px]">
+					<FeatureDescriptionContainer>
+						{steps.map((step, index) => (
+							<FeatureDescription
+								// eslint-disable-next-line react/no-array-index-key -- index is unique
+								key={index}
+								icon={step.icon}
+								title={step.title}
+								description={step.description}
+							/>
+						))}
+					</FeatureDescriptionContainer>
 				</div>
 			</div>
 
