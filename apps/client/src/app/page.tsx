@@ -67,6 +67,38 @@ const promptCategories = [
 		title: "Photography",
 		images: ["/img/main/art1.png", "/img/main/art2.png", "/img/main/art3.png"],
 	},
+	{
+		title: "Stylized Art",
+		images: ["/img/main/art1.png", "/img/main/art2.png", "/img/main/art3.png"],
+	},
+	{
+		title: "Realistic Art",
+		images: ["/img/main/art1.png", "/img/main/art2.png", "/img/main/art3.png"],
+	},
+	{
+		title: "Music",
+		images: ["/img/main/art1.png", "/img/main/art2.png", "/img/main/art3.png"],
+	},
+	{
+		title: "Photography",
+		images: ["/img/main/art1.png", "/img/main/art2.png", "/img/main/art3.png"],
+	},
+	{
+		title: "Stylized Art",
+		images: ["/img/main/art1.png", "/img/main/art2.png", "/img/main/art3.png"],
+	},
+	{
+		title: "Realistic Art",
+		images: ["/img/main/art1.png", "/img/main/art2.png", "/img/main/art3.png"],
+	},
+	{
+		title: "Music",
+		images: ["/img/main/art1.png", "/img/main/art2.png", "/img/main/art3.png"],
+	},
+	{
+		title: "Photography",
+		images: ["/img/main/art1.png", "/img/main/art2.png", "/img/main/art3.png"],
+	},
 ]
 
 const notableDrops = Array.from({ length: 12 }).map(() => ({
