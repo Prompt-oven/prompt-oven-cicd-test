@@ -4,7 +4,7 @@ import PromptList from "../organism/PromptList"
 import promptListData from "@/dummy/prompts/promptListData"
 import { FilterData } from "@/types/prompts/marketPlaceType"
 
-function MarketPlaceTemplate() {
+function PromptsTemplate() {
 	return (
 		<div>
 			{/* <FilterSideBar /> */}
@@ -13,4 +13,4 @@ function MarketPlaceTemplate() {
 	)
 }
 
-export default MarketPlaceTemplate
+export default PromptsTemplate

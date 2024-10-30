@@ -34,11 +34,13 @@ function FilterSideBar({
 		checked: boolean,
 	) => {
 		setFilters((prevFilters) => ({
+			// 필터 추가/제거 역할
 			...prevFilters,
 			[group]: checked
 				? [...prevFilters[group], option]
 				: prevFilters[group].filter((item) => item !== option),
 		}))
+		;("")
 	}
 
 	return (
