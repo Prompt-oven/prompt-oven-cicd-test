@@ -10,6 +10,7 @@ import CategoryList from "@/components/main/molecule/CategoryList.tsx"
 import NotableDrop from "@/components/main/molecule/NotableDrop.tsx"
 import NotableDropsCarousel from "@/components/main/organism/NotableDropsCarousel.tsx"
 import MainFooter from "@/components/main/organism/MainFooter.tsx"
+import BestSellerFilter from "@/components/main/organism/BestSellerFilter.tsx"
 
 const steps = [
 	{
@@ -35,7 +36,7 @@ const steps = [
 		title: "List them for sale",
 		description:
 			"Diam sit amet nisl suscipit adipiscing bibendum est. Porttitor eget dolor morbi non arcu risus quis varius quam.",
-  }
+	},
 ]
 
 const promptCategories = [
@@ -66,7 +67,6 @@ const promptCategories = [
 	{
 		title: "Photography",
 		images: ["/img/main/art1.png", "/img/main/art2.png", "/img/main/art3.png"],
-
 	},
 ]
 
@@ -82,35 +82,51 @@ const notableDrops = Array.from({ length: 12 }).map(() => ({
 	},
 }))
 
+const sellers = [
+	{ number: 1, nickname: "Creator 1", earnings: 6486658, isVerified: true },
+	{ number: 2, nickname: "Creator 2", earnings: 10140240, isVerified: true },
+	{ number: 3, nickname: "Creator 3", earnings: 2156628, isVerified: true },
+	{ number: 4, nickname: "Creator 4", earnings: 1168853, isVerified: false },
+	{ number: 5, nickname: "Creator 5", earnings: 839349, isVerified: true },
+	{ number: 6, nickname: "Creator 6", earnings: 3986580, isVerified: false },
+	{ number: 7, nickname: "Creator 7", earnings: 2170691, isVerified: false },
+	{ number: 8, nickname: "Creator 8", earnings: 1643063, isVerified: true },
+	{ number: 9, nickname: "Creator 9", earnings: 14685149, isVerified: true },
+	{ number: 10, nickname: "Creator 10", earnings: 10510827, isVerified: true },
+	{ number: 11, nickname: "Creator 11", earnings: 6561810, isVerified: true },
+	{ number: 12, nickname: "Creator 12", earnings: 6486658, isVerified: true },
+	{ number: 13, nickname: "Creator 13", earnings: 15432752, isVerified: false },
+	{ number: 14, nickname: "Creator 14", earnings: 8443547, isVerified: true },
+	{ number: 15, nickname: "Creator 15", earnings: 16143658, isVerified: true },
+]
 
 export default function Page() {
 	return (
 		<main className="flex min-h-screen flex-col items-center justify-between bg-[#111111]">
 			<MainHeader />
-      
+
 			<div className="flex w-full flex-col items-center justify-center gap-20 p-8">
-        
 				<ImageCarousel />
-        
-        <div className="flex h-[1000px] w-full items-center justify-center p-8">
-				  <div>
-					  <FeatureDescriptionContainer>
-						  {steps.map((step, index) => (
-							  <FeatureDescription
-								  key={index}
-								  icon={step.icon}
-								  title={step.title}
-								  description={step.description}
-							  />
-						  ))}
-					  </FeatureDescriptionContainer>
-				  </div>
-			  </div>
-        
+
+				<div className="flex h-[1000px] w-full items-center justify-center p-8">
+					<div>
+						<FeatureDescriptionContainer>
+							{steps.map((step, index) => (
+								<FeatureDescription
+									key={index}
+									icon={step.icon}
+									title={step.title}
+									description={step.description}
+								/>
+							))}
+						</FeatureDescriptionContainer>
+					</div>
+				</div>
+
 				<div className="py-10">
 					<CategoryList categories={promptCategories} />
 				</div>
-        
+
 				<div className="py-10">
 					<NotableDrop
 						tag="NEW"
@@ -127,9 +143,12 @@ export default function Page() {
 				<div className="w-full py-10">
 					<NotableDropsCarousel items={notableDrops} />
 				</div>
-        
+
+				<div className="w-full py-10">
+					<BestSellerFilter sellers={sellers} />
+				</div>
 			</div>
-      
+
 			<MainFooter />
 		</main>
 	)
