@@ -1,6 +1,6 @@
-import React from "react"
+import React, { type SVGProps } from "react"
 
-interface LinkedInSvgProps {
+interface LinkedInSvgProps extends SVGProps<SVGSVGElement> {
 	width?: number | string
 	height?: number | string
 	color?: string
@@ -10,6 +10,7 @@ function LinkedInSvg({
 	width = "18",
 	height = "18",
 	color = "#111111",
+	...props
 }: LinkedInSvgProps) {
 	return (
 		<svg
@@ -17,7 +18,8 @@ function LinkedInSvg({
 			height={height}
 			viewBox="0 0 18 18"
 			fill="none"
-			xmlns="http://www.w3.org/2000/svg">
+			xmlns="http://www.w3.org/2000/svg"
+			{...props}>
 			<path
 				d="M18.0004 18V11.4074C18.0004 8.1674 17.3029 5.69238 13.5228 5.69238C11.7003 5.69238 10.4853 6.68239 9.99032 7.6274H9.94532V5.98488H6.3678V18H10.1028V12.0374C10.1028 10.4624 10.3953 8.9549 12.3303 8.9549C14.2429 8.9549 14.2654 10.7324 14.2654 12.1274V17.9775H18.0004V18Z"
 				fill={color}
