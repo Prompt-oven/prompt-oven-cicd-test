@@ -17,7 +17,7 @@ export default function ProfileRegistPromptList({
 				{promptList.map((item) => (
 					<li
 						key={item.productPrice}
-						className="h-60 overflow-hidden rounded-md border border-white bg-green-300 hover:border-[#1b1b1b] xl:h-[10rem] 2xl:h-32">
+						className="h-60 overflow-hidden rounded-md border border-white bg-[1b1b1b] hover:border-[#1b1b1b] xl:h-[10rem] 2xl:h-32">
 						<ProfileListItem promptData={item} />
 					</li>
 				))}

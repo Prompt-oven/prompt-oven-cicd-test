@@ -3,15 +3,17 @@ import type { ProfileInfoType } from "@/types/profile/profileTypes"
 export const profileDatas: ProfileInfoType = {
 	memberInfo: {
 		memberUUID: "tester",
-		// bannerImageUrl: "/img/banner.png",
-		// avatarImageUrl: "/img/avatar.png",
-		// bannerImageUrl: "https://promptoven.s3.ap-northeast-2.amazonaws.com/dummy/banner.png",
-		avatarImageUrl:
+		// banner: "/img/banner.png",
+		// profileImage: "/img/avatar.png",
+		banner:
+			"https://promptoven.s3.ap-northeast-2.amazonaws.com/dummy/banner.png",
+		profileImage:
 			"https://promptoven.s3.ap-northeast-2.amazonaws.com/dummy/avatar.png",
 		nickname: "chocochip",
-		instagramName: "chocochipGram",
-		youtubeUrl: "chocoYtu.com",
-		websiteUrl: "chocoWeb.com",
+		// bio: "test my introduce",
+		instagramId: "chocochipGram",
+		youtubeHandle: "chocoYtu.com",
+		webLink: "chocoWeb.com",
 		allowMessage: false,
 		acceptCustom: true,
 	},
@@ -47,7 +49,7 @@ export const profileDatas: ProfileInfoType = {
 			productUUID: "4",
 			// thumbnailUrl: "/img/avatar.png",
 			thumbnailUrl:
-				"https://promptoven.s3.ap-northeast-2.amazonaws.com/dummy/avatar.png",
+				"https://promptoven.s3.ap-northeast-2.amazonaws.com/dummy/2f002cd9-080f-41e3-870f-c03f133e453c.png",
 			categoryName: "category!!",
 			productName: "product!!",
 			productPrice: "4000",

@@ -2,7 +2,7 @@ import {
 	getProfile,
 	getReviewAndFollowCount,
 } from "@/action/profile/getProfileData"
-import ProfileTemplate from "@/components/profile/templates/ProfileTemplate"
+import ProfileTemplate from "@/components/profile-demo/templates/ProfileTemplate"
 
 export default async function Profile() {
 	const reviewAndFollowCount = await getReviewAndFollowCount()

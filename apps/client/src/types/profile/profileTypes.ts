@@ -15,13 +15,26 @@ export interface ProfileInfoType {
 
 export interface MemberInfoType {
 	memberUUID: string
-	bannerImageUrl?: string | undefined
-	avatarImageUrl?: string | undefined
+	banner?: string | undefined
+	profileImage?: string | undefined
 	nickname: string
-	twitterName?: string | undefined
-	instagramName?: string | undefined
-	youtubeUrl?: string | undefined
-	websiteUrl?: string | undefined
+	bio?: string | undefined
+	xId?: string | undefined
+	instagramId?: string | undefined
+	youtubeHandle?: string | undefined
+	webLink?: string | undefined
+	allowMessage: boolean
+	acceptCustom: boolean
+}
+
+export interface RegistProfileType {
+	banner?: string | undefined
+	profileImage?: string | undefined
+	bio?: string | undefined
+	xId?: string | undefined
+	instagramId?: string | undefined
+	youtubeHandle?: string | undefined
+	webLink?: string | undefined
 	allowMessage: boolean
 	acceptCustom: boolean
 }

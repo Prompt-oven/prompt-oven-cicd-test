@@ -1,7 +1,10 @@
+"use server"
+
 import { profileDatas } from "@/dummy/profile/infoAndListDatas"
 import { profileCountData } from "@/dummy/profile/reviewAndFollowData"
 import type {
 	ProfileInfoType,
+	RegistProfileType,
 	ReviewAndFollowType,
 } from "@/types/profile/profileTypes"
 
@@ -48,50 +51,36 @@ export async function getProfile(): Promise<ProfileInfoType> {
 	return res
 }
 
-//임시 예시 코드 - next revalidate Tag
-// export async function updateProfile() {
-//     'use server'
+export async function registeProfile(registerProfileData: FormData) {
+	"use server"
 
-//     const auth = await getSessionAuth()
-//     if (!auth) return
+	const payload: RegistProfileType = {
+		banner: registerProfileData.get("banner") as string,
+		profileImage: registerProfileData.get("profileImage") as string,
+		bio: registerProfileData.get("bio") as string,
+		xId: registerProfileData.get("xId") as string,
+		instagramId: registerProfileData.get("instagramId") as string,
+		youtubeHandle: registerProfileData.get("youtubeHandle") as string,
+		webLink: registerProfileData.get("webLink") as string,
+		allowMessage: registerProfileData.get("allowMessage") === "on",
+		acceptCustom: registerProfileData.get("acceptCustom") === "on",
+	}
 
-//     const res = await fetch(`${process.env.API_BASE_URL}/v1/`, {
-//       method: 'PUT',
-//       headers: {
-//         'Content-Type': 'application/json',
-//         Authorization: `Bearer ${auth.accessToken}`,
-//       },
-//       body: JSON.stringify({
-//         basketCode: basketCode,
-//         isChecked: !checked,
-//       }),
-//     })
+	// console.log("paylaod --> ", payload)
 
-//     if (!res.ok) {
-//       console.error('profile Update Fail:', res)
-//       return
-//     } else revalidateTag('updateProfile')
-//   }
+	payload
 
-//임시 예시 코드 - next Tag
-// export async function profile(): Promise<profileType[]> {
-//     const auth = await getSessionAuth()
-//     if (!auth) return []
+	// const res = await fetch(`${process.env.API_BASE_URL}/v1/profile/register`, {
+	// 	method: "POST",
+	// 	body: JSON.stringify(payload),
+	// 	headers: {
+	// 		"Content-Type": "application/json",
+	// 		//   Authorization: `Bearer ${isAuth?.accessToken}`,
+	// 	},
+	// })
 
-//     const res = await fetch(`${process.env.API_BASE_URL}/v1/`, {
-//       method: 'GET',
-//       headers: {
-//         'Content-Type': 'application/json',
-//         Authorization: `Bearer ${auth.accessToken}`,
-//       },
-//       next: { tags: ['updateProfile'] },
-//       cache: 'no-cache',
-//     })
-
-//     if (!res.ok) {
-//       console.log('Failed to fetch')
-//       return []
-//     } else {
-//       return (await res.json()).result as profileType[]
-//     }
-//   }
+	// if (res.ok) {
+	// 	return true
+	// } else return false
+	return null
+}

@@ -11,8 +11,9 @@ export default function ProfileBanner({ banner }: BannerProps) {
 			{banner ? (
 				<Image
 					src={banner}
-					layout="fill"
-					objectFit="cover"
+					sizes="1000"
+					fill
+					style={{ objectFit: "cover" }}
 					alt="Profile Banner"
 					priority
 				/>

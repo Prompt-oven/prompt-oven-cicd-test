@@ -47,5 +47,9 @@ module.exports = {
     "@typescript-eslint/no-confusing-void-expression": "off",
     "react/jsx-sort-props": "off",
     "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/require-await": "off",
+    "@typescript-eslint/no-floating-promises": "off",
+    "@typescript-eslint/non-nullable-type-assertion-style": "off",
+    "@typescript-eslint/no-misused-promises": "off",
   },
 };

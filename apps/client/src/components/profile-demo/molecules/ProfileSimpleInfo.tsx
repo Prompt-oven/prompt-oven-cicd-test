@@ -1,22 +1,32 @@
-import React from "react"
 import type {
 	MemberInfoType,
 	ReviewAndFollowType,
 } from "@/types/profile/profileTypes"
+import ProfileSettingButton from "../atoms/ProfileSettingButton"
 
 interface SimpleInfoProps {
 	memberInfo: MemberInfoType
-	isVisible: boolean
 	reviewAndFollowCount: ReviewAndFollowType
+	toggleVisibility: () => void
 }
 
 export default function ProfileSimpleInfo({
 	memberInfo,
-	isVisible,
 	reviewAndFollowCount,
+	toggleVisibility,
 }: SimpleInfoProps) {
 	return (
-		<div className={`mb-10 mt-32 ${isVisible ? "" : "hidden"}`}>
+		<div className="mb-10 mt-24">
+			<div className="flex justify-end">
+				<div className="w-28">
+					<ProfileSettingButton
+						bgColor="white"
+						name="Edit Profile"
+						toggleVisibility={toggleVisibility}
+					/>
+				</div>
+			</div>
+
 			<div className="mx-8 mb-4 flex items-center">
 				<span className="font-bold text-white">@{memberInfo.nickname}</span>
 			</div>

@@ -15,13 +15,16 @@ export default function ProfileListItem({ promptData }: PromptItemProps) {
 			</div>
 			<div className="relative flex-grow overflow-hidden">
 				<Link href={`product/${promptData.productUUID}`}>
-					<Image
-						src={promptData.thumbnailUrl}
-						layout="fill"
-						objectFit="cover"
-						alt={promptData.productUUID}
-						priority
-					/>
+					<div className="relative h-full w-full">
+						<Image
+							src={promptData.thumbnailUrl}
+							alt={promptData.productUUID}
+							priority
+							sizes="500"
+							fill
+							style={{ objectFit: "cover" }}
+						/>
+					</div>
 				</Link>
 			</div>
 			<div className="flex justify-between bg-[#1b1b1b] text-base text-white xl:text-sm 2xl:text-xs">
