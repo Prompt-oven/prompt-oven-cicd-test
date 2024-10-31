@@ -17,8 +17,13 @@
     "./label": "./src/Label.tsx",
     "./radix-label": "./src/RadixLabel.tsx",
     "./radix-slot": "./src/RadixSlot.tsx",
+<<<<<<< HEAD
     "./checkbox": "./src/CheckBox.tsx",
     "./badge": "./src/Badge.tsx"
+=======
+    "./badge": "./src/Badge.tsx",
+    "./select": "./src/Select.tsx"
+>>>>>>> 6742fcdbe28fd0c960249e1c3e3a959f1766f9d6
   },
   "license": "MIT",
   "scripts": {
@@ -46,6 +51,7 @@
     "@radix-ui/react-checkbox": "^1.1.2",
     "@radix-ui/react-icons": "^1.3.0",
     "@radix-ui/react-label": "^2.1.0",
+    "@radix-ui/react-select": "^2.1.2",
     "@radix-ui/react-slot": "^1.1.0",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",

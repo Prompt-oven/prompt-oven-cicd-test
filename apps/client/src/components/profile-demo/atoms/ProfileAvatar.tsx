@@ -12,8 +12,9 @@ export default function ProfileAvatar({ avatar }: AvatarProps) {
 			{avatar ? (
 				<Image
 					src={avatar}
-					layout="fill"
-					objectFit="cover"
+					sizes="500"
+					fill
+					style={{ objectFit: "cover" }}
 					alt="Profile Banner"
 					priority
 				/>

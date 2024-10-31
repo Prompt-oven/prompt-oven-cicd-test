@@ -27,21 +27,20 @@ export default function ProfileMain({
 	return (
 		<>
 			{/* Background & Avatar */}
-			<ProfileSetting
-				memberInfo={memberInfo}
-				isVisible={isVisible}
-				toggleVisibility={toggleVisibility}
-			/>
+			<ProfileSetting memberInfo={memberInfo} />
 
 			{/* USER INFO */}
 			{isVisible ? (
 				<ProfileSimpleInfo
 					memberInfo={memberInfo}
-					isVisible={isVisible}
 					reviewAndFollowCount={reviewAndFollowCount}
+					toggleVisibility={toggleVisibility}
 				/>
 			) : (
-				<ProfileEditInfo memberInfo={memberInfo} />
+				<ProfileEditInfo
+					memberInfo={memberInfo}
+					toggleVisibility={toggleVisibility}
+				/>
 			)}
 		</>
 	)
