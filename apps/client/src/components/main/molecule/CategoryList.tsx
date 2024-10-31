@@ -61,6 +61,7 @@ function CategoryList({ categories }: CategoryListProps) {
 				}}>
 				<div className="flex gap-5 pb-4">
 					{categories.map((category, index) => (
+						// eslint-disable-next-line react/no-array-index-key -- index is unique
 						<div key={`${category.title}-${index}`} className="flex-none">
 							<CategoryItem {...category} />
 						</div>
