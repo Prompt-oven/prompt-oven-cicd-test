@@ -3,6 +3,7 @@ import "./globals.css"
 import "@repo/ui/styles.css"
 import type { Metadata } from "next"
 import { roboto, sora } from "@/app/fonts.ts"
+import MainHeader from "@/components/main/molecule/MainHeader.tsx"
 
 export const metadata: Metadata = {
 	title: "Prompt Oven",
@@ -36,6 +37,7 @@ export default function RootLayout({
 				<meta name="mobile-web-app-capable" content="yes" />
 			</head>
 			<body className={`${sora.variable} ${roboto.variable} ${sora.className}`}>
+				<MainHeader />
 				{children}
 			</body>
 		</html>
