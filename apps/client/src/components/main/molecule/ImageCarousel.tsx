@@ -4,37 +4,26 @@ import React, { useCallback, useEffect, useState } from "react"
 import type { PanInfo } from "framer-motion"
 import { AnimatePresence, motion, useDragControls } from "framer-motion"
 
-const images = [
-	{
-		src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/14d64d25a42a191fc83ed8fe0131d55e-elpi9POXTCICMSLKPSWwoBsGyvbQOw.png",
-		alt: "Cute cartoon character in bear costume with smaller bear",
-		title: "Bear Friends",
-		creator: "@bearartist",
-	},
-	{
-		src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/b1a6d4c50df289b2a6a9a07124702274-4jydo2FU8fWjY5BCng03SGBGMSasEi.png",
-		alt: "Close-up of cartoon character in bear costume",
-		title: "크양",
-		creator: "@koreanartist",
-	},
-	{
-		src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/a94f15e50a0469c3be2ddb4899f7c942-1QwjkrzSSCeKm5ZacaXZQReGQfNgiS.png",
-		alt: "Anime girl with pink hair taking selfie in magical room",
-		title: "Magical Selfie",
-		creator: "@animeartist",
-	},
-	{
-		src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E1%84%92%E1%85%A9%E1%84%80%E1%85%AE%E1%84%8B%E1%85%AA%E1%84%90%E1%85%B3-%E1%84%8E%E1%85%A1%E1%86%B8-cZ48jAqFyuoVQcABL0KztIIBFgS4yi.png",
-		alt: "Anime girl with pink hair by window on train",
-		title: "Magical Journey",
-		creator: "@abstractart",
-	},
-]
-
 const SLIDE_DURATION = 5000 // 5 seconds
 const DRAG_THRESHOLD = 50 // Minimum drag distance to trigger slide change
 
-export default function ImageCarousel() {
+interface ImageCarouselProps {
+	images: {
+		id?: string
+		src: string
+		alt: string
+		title: string
+		creator: string
+		mainDesc?: string
+		subDesc?: string
+	}[]
+	changeCallbackFn?: (index: number) => void
+}
+
+export default function ImageCarousel({
+	images,
+	changeCallbackFn,
+}: ImageCarouselProps) {
 	const [currentIndex, setCurrentIndex] = useState(0)
 	const [direction, setDirection] = useState(0)
 	const [isHovered, setIsHovered] = useState(false)
@@ -42,15 +31,21 @@ export default function ImageCarousel() {
 
 	const nextSlide = useCallback(() => {
 		setDirection(1)
-		setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length)
-	}, [])
+		setCurrentIndex((prevIndex) => {
+			const curIndex = (prevIndex + 1) % images.length
+			changeCallbackFn && changeCallbackFn(curIndex)
+			return curIndex
+		})
+	}, [changeCallbackFn, images.length])
 
 	const prevSlide = useCallback(() => {
 		setDirection(-1)
-		setCurrentIndex(
-			(prevIndex) => (prevIndex - 1 + images.length) % images.length,
-		)
-	}, [])
+		setCurrentIndex((prevIndex) => {
+			const curIndex = (prevIndex - 1 + images.length) % images.length
+			changeCallbackFn && changeCallbackFn(curIndex)
+			return curIndex
+		})
+	}, [changeCallbackFn, images.length])
 
 	useEffect(() => {
 		// eslint-disable-next-line no-undef -- NodeJS.Timeout is a Node.js global

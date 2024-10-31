@@ -36,7 +36,7 @@ function NotableDrop({
 			</div>
 
 			{tag ? (
-				<Badge className="absolute left-10 top-10 z-20 rounded-[5px] bg-gradient-to-r from-purple-600 to-blue-600 px-4 py-2 hover:from-purple-700 hover:to-blue-700">
+				<Badge className="absolute left-10 top-10 z-20 rounded-[5px] bg-gradient-to-r from-purple-600 to-blue-600 px-4 py-2">
 					{tag}
 				</Badge>
 			) : null}
