@@ -1,24 +1,21 @@
 import React from "react"
 
-interface ProfileSettingButtonProps {
+interface ProfileSaveButtonProps {
 	bgColor: string
 	fontColor?: string
 	name: string
-	toggleVisibility: () => void
 }
 
-export default function ProfileSettingButton({
+export default function ProfileSaveButton({
 	bgColor,
 	fontColor,
 	name,
-	toggleVisibility,
-}: ProfileSettingButtonProps) {
+}: ProfileSaveButtonProps) {
 	return (
 		<button
-			type="button"
+			type="submit"
 			className="w-full rounded-md border border-gray-300 py-1 text-center text-sm font-bold"
-			style={{ backgroundColor: bgColor }}
-			onClick={toggleVisibility}>
+			style={{ backgroundColor: bgColor }}>
 			<span style={{ color: fontColor || "black" }}>{name}</span>
 		</button>
 	)
