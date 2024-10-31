@@ -5,7 +5,7 @@ interface BannerProps {
 	banner: string
 }
 
-export default function ProfileBanner({ banner }: BannerProps) {
+export default function ProfileBannerDemo({ banner }: BannerProps) {
 	return (
 		<div className="relative h-[200px] w-full overflow-hidden rounded-md bg-[#420350]">
 			{banner ? (

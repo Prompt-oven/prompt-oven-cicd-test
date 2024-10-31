@@ -4,7 +4,7 @@ import {
 } from "@/action/profile/getProfileData"
 import ProfileTemplate from "@/components/profile-demo/templates/ProfileTemplate"
 
-export default async function Profile() {
+export default async function ProfileDemo() {
 	const reviewAndFollowCount = await getReviewAndFollowCount()
 	const profileData = await getProfile()
 
