@@ -59,7 +59,7 @@ jobs:
       - name: make .env for proper build
         run: |
           touch .env
-          echo '${{ secrets.PROPERTIES_PROD }}' > .env
+          echo '${{ secrets.PROPERTIES_PROD }}' > apps/client/.env
         shell: bash
       
       - name: Build
