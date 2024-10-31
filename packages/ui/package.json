@@ -17,13 +17,9 @@
     "./label": "./src/Label.tsx",
     "./radix-label": "./src/RadixLabel.tsx",
     "./radix-slot": "./src/RadixSlot.tsx",
-<<<<<<< HEAD
     "./checkbox": "./src/CheckBox.tsx",
-    "./badge": "./src/Badge.tsx"
-=======
     "./badge": "./src/Badge.tsx",
     "./select": "./src/Select.tsx"
->>>>>>> 6742fcdbe28fd0c960249e1c3e3a959f1766f9d6
   },
   "license": "MIT",
   "scripts": {
