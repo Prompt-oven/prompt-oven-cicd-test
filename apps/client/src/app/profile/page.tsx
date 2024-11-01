@@ -1,18 +1,18 @@
-import React from "react"
-import ProfileBanner from "@/components/profile/organisms/ProfileBanner"
-import ProfileFilterSidebar from "@/components/profile/organisms/ProfileFilterSidebar"
-import ProfileItemFilter from "@/components/profile/organisms/ProfileItemFilter"
-import MemberInfo from "@/components/profile/organisms/ProfileMemberInfo"
-import ProfilePromptItem from "@/components/profile/organisms/ProfilePromptItem"
+import ProfileLoadMore from "@/components/profile/molecules/ProfileLoadMore"
+import ProfileMemberInfo from "@/components/profile/organisms/ProfileMemberInfo"
 
 export default function Profile() {
 	return (
-		<div>
-			<ProfileBanner />
-			<ProfilePromptItem />
-			<MemberInfo />
+		<main className="flex min-h-screen w-screen justify-center overflow-auto bg-[#111111] py-1">
+			<section className="w-full max-w-screen-2xl">
+				<ProfileMemberInfo />
+
+				{/* <ProfilePromptItem />
 			<ProfileItemFilter />
-			<ProfileFilterSidebar />
-		</div>
+			<ProfileFilterSidebar /> */}
+
+				<ProfileLoadMore />
+			</section>
+		</main>
 	)
 }

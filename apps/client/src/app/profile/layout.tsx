@@ -1,6 +1,5 @@
-import React from "react"
-import MainHeader from "@/components/main/molecule/MainHeader"
 import MainFooter from "@/components/main/organism/MainFooter"
+import React from "react"
 
 export default function layout({
 	children,
@@ -9,7 +8,6 @@ export default function layout({
 }>) {
 	return (
 		<>
-			<MainHeader />
 			{children}
 			<MainFooter />
 		</>
