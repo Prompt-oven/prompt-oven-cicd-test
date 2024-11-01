@@ -5,5 +5,9 @@ export {
   ChevronRight,
   ChevronDown,
   ArrowRight,
+  Star,
+  MoreVertical,
+  ShoppingCart,
   X,
+  ChevronUp,
 } from "lucide-react";
