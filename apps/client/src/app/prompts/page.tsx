@@ -1,8 +1,22 @@
 "use client"
 // import PromptsTemplate from "@/components/prompts/template/PromptsTemplate"
 import { useState } from "react"
+import { Search } from "@repo/ui/lucide"
+import { ChevronDown, ChevronUp } from "@repo/ui/lucide"
+import { Label } from "@repo/ui/radix-label"
+import { RadioGroup, RadioGroupItem } from "@repo/ui/radio-group"
+import { Input } from "@repo/ui/input"
 
 export default function page() {
+	const categories = [
+		{ id: 1, name: "Art" },
+		{ id: 2, name: "Fashion" },
+		{ id: 3, name: "Music" },
+		{ id: 4, name: "Video" },
+		{ id: 5, name: "Games" },
+		{ id: 6, name: "Sports" },
+		{ id: 7, name: "Puppies" },
+	]
 	const colors = [
 		{ name: "Blue", value: "#3772FF" },
 		{ name: "Purple", value: "#5D5FEF" },
@@ -19,37 +33,96 @@ export default function page() {
 		"CryptoArte",
 		"CyberKongz",
 	]
+	const [selectedCategory, setSelectedCategory] = useState<string | null>(null)
+	const [isCategoryOpen, setIsCategoryOpen] = useState<boolean>(true)
+	const [isPriceOpen, setIsPriceOpen] = useState<boolean>(true)
 	return (
-		<div className="flex h-[1000px] bg-[#000000]" id="prompts-list-page">
+		<div id="prompts-list-page">
+			{/* 좌측 */}
+
 			<div
 				className="w-[264px] rounded-lg bg-opacity-20 bg-gradient-to-r from-[#FC466B] to-[#3F5EFB] p-4"
-				id="filter-leftbar">
-				<h2 className="mb-4 font-medium text-white">FILTER BY</h2>
+				title="filter-leftbar">
+				{/* 서치 창 */}
+				<div title="search-section" className="border-b border-white/10 py-4">
+					<button className="mb-4">
+						<span className="text-sm font-bold text-white">FILTER BY</span>
+					</button>
+					<div title="search-input-field" className="relative">
+						<Input
+							placeholder="Search"
+							className="border-none bg-white/10 pl-10 text-white placeholder:text-white/70"
+						/>
+						<Search className="absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-white/70" />
+					</div>
+				</div>
+				{/* 카테고리 섹션 */}
+				<div title="category-section" className="border-b border-white/10 py-4">
+					<button
+						onClick={() => setIsCategoryOpen(!isCategoryOpen)}
+						className="mb-4 flex w-full items-center justify-between text-white">
+						<span className="text-sm font-bold">Category</span>
+						{isCategoryOpen ? (
+							<ChevronDown className="h-4 w-4 text-white/70" />
+						) : (
+							<ChevronUp className="h-4 w-4 text-white/70" />
+						)}
+					</button>
+					{isCategoryOpen && (
+						<RadioGroup title="Category-Filter" className="space-y-2">
+							{categories.map((category) => (
+								<div key={category.id} className="flex items-center space-x-2">
+									<RadioGroupItem
+										className="border-white/70 text-white"
+										value={category.name}
+										checked={selectedCategory === category.name}
+										onClick={() => setSelectedCategory(category.name)}
+									/>
+									<Label
+										className="mt-1 text-sm text-white"
+										htmlFor={category.name}>
+										{category.name}
+									</Label>
+								</div>
+							))}
+						</RadioGroup>
+					)}
+				</div>
+				{/* 가격 섹션 */}
+				<div title="price-section" className="border-b border-white/10 py-4">
+					<h2 className="mb-4 font-medium text-white">Price</h2>
 
-				<input id="search-input" />
-				<div title="Category-Filter"></div>
-
-				<div title="Status-filter"></div>
-
-				<div title="Price-filter">
 					<div className="space-y-4">
 						<div className="flex gap-2"></div>
 					</div>
+					{/* 버튼 섹션 */}
+					<div className="mt-4 flex gap-2">
+						<button className="flex-1 bg-[#35314D] text-white hover:bg-[#35314D]/90">
+							Clear
+						</button>
+						<button className="flex-1 bg-[#F24E1E] text-white hover:bg-[#F24E1E]/90">
+							Apply
+						</button>
+					</div>
 				</div>
-
-				<div title="Collection">
+				{/* collection 섹션 */}
+				<div
+					title="collection-section"
+					className="border-b border-white/10 py-4">
+					<h2 className="mb-4 font-medium text-white">Collection</h2>
 					{collections.map((collection) => (
 						<div
 							key={collection}
 							className="flex items-center space-x-2"
-							id="Collection-Filter">
+							title="Collection-Filter">
 							<div />
 							<div className="text-sm text-white">{collection}</div>
 						</div>
 					))}
 				</div>
-
-				<div title="ColorFilter">
+				{/* 색상 섹션 */}
+				<div title="color-section" className="border-b border-white/10 py-4">
+					<h2 className="mb-4 font-medium text-white">Filter By Color</h2>
 					<div className="flex flex-wrap gap-2">
 						{colors.map((color) => (
 							<button
@@ -60,24 +133,30 @@ export default function page() {
 						))}
 					</div>
 				</div>
-
-				<div className="mt-4 flex gap-2">
-					<button className="flex-1 bg-[#35314D] text-white hover:bg-[#35314D]/90">
-						Clear
-					</button>
-					<button className="flex-1 bg-[#F24E1E] text-white hover:bg-[#F24E1E]/90">
-						Apply
-					</button>
-				</div>
 			</div>
-			<div id="promptlists-rightbar">
-				<div id="promptItemCard">
-					<div id="prompt-thumbnail-image"></div>
-					<div id="prompt-info-for-ItemCard">
-						<div id="star-point"></div>
-						<div id="promptName"></div>
-						<div id="modelName"></div>
-						<div id="prompt-price"></div>
+
+			{/* 우측 */}
+			<div title="promptlists-rightbar">
+				<div title="selected-filter-lists">
+					<div title="selected-filter-item">
+						<div title="filter-name">In Auction</div>
+						<div title="filter-value"></div>
+						<div title="remove-filter-button">X</div>
+					</div>
+				</div>
+				<div title="clear-all" className="text-red">
+					Clear All
+				</div>
+				{/* 우측 프롬프트 카드 목록 */}
+				<div title="promptItemCard">
+					<div title="prompt-thumbnail-image"></div>
+					<div title="item-tag"></div>
+					<div title="prompt-info-for-ItemCard">
+						<div title="star-point"></div>
+						<div title="promptName"></div>
+						<div title="modelName"></div>
+						<div title="prompt-price"></div>
+						<div title="cart-trigger-button"></div>
 					</div>
 				</div>
 			</div>
