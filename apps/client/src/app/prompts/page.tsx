@@ -1,13 +1,12 @@
 "use client"
 // import PromptsTemplate from "@/components/prompts/template/PromptsTemplate"
 import { useState } from "react"
-import { Search } from "@repo/ui/lucide"
-import { ChevronDown, ChevronUp } from "@repo/ui/lucide"
+import { ChevronDown, ChevronUp, Search } from "@repo/ui/lucide"
 import { Label } from "@repo/ui/radix-label"
 import { RadioGroup, RadioGroupItem } from "@repo/ui/radio-group"
 import { Input } from "@repo/ui/input"
 
-export default function page() {
+export default function Page() {
 	const categories = [
 		{ id: 1, name: "Art" },
 		{ id: 2, name: "Fashion" },
@@ -17,15 +16,15 @@ export default function page() {
 		{ id: 6, name: "Sports" },
 		{ id: 7, name: "Puppies" },
 	]
-	const colors = [
-		{ name: "Blue", value: "#3772FF" },
-		{ name: "Purple", value: "#5D5FEF" },
-		{ name: "Pink", value: "#EF5DA8" },
-		{ name: "Red", value: "#FF4E4E" },
-		{ name: "Green", value: "#21A85A" },
-		{ name: "Mint", value: "#37FFC3" },
-		{ name: "White", value: "#FFFFFF" },
-	]
+	// const colors = [
+	// 	{ name: "Blue", value: "#3772FF" },
+	// 	{ name: "Purple", value: "#5D5FEF" },
+	// 	{ name: "Pink", value: "#EF5DA8" },
+	// 	{ name: "Red", value: "#FF4E4E" },
+	// 	{ name: "Green", value: "#21A85A" },
+	// 	{ name: "Mint", value: "#37FFC3" },
+	// 	{ name: "White", value: "#FFFFFF" },
+	// ]
 	const collections = [
 		"Audioglyphs",
 		"Autoglyphs",
@@ -35,7 +34,7 @@ export default function page() {
 	]
 	const [selectedCategory, setSelectedCategory] = useState<string | null>(null)
 	const [isCategoryOpen, setIsCategoryOpen] = useState<boolean>(true)
-	const [isPriceOpen, setIsPriceOpen] = useState<boolean>(true)
+	// const [isPriceOpen, setIsPriceOpen] = useState<boolean>(true)
 	return (
 		<div id="prompts-list-page">
 			{/* 좌측 */}
@@ -45,7 +44,7 @@ export default function page() {
 				title="filter-leftbar">
 				{/* 서치 창 */}
 				<div title="search-section" className="border-b border-white/10 py-4">
-					<button className="mb-4">
+					<button type="button" className="mb-4">
 						<span className="text-sm font-bold text-white">FILTER BY</span>
 					</button>
 					<div title="search-input-field" className="relative">
@@ -59,6 +58,7 @@ export default function page() {
 				{/* 카테고리 섹션 */}
 				<div title="category-section" className="border-b border-white/10 py-4">
 					<button
+						type="button"
 						onClick={() => setIsCategoryOpen(!isCategoryOpen)}
 						className="mb-4 flex w-full items-center justify-between text-white">
 						<span className="text-sm font-bold">Category</span>
@@ -76,7 +76,7 @@ export default function page() {
 										className="border-white/70 text-white"
 										value={category.name}
 										checked={selectedCategory === category.name}
-										onClick={() => setSelectedCategory(category.name)}
+										onChange={() => setSelectedCategory(category.name)}
 									/>
 									<Label
 										className="mt-1 text-sm text-white"
@@ -93,14 +93,18 @@ export default function page() {
 					<h2 className="mb-4 font-medium text-white">Price</h2>
 
 					<div className="space-y-4">
-						<div className="flex gap-2"></div>
+						<div className="flex gap-2" />
 					</div>
 					{/* 버튼 섹션 */}
 					<div className="mt-4 flex gap-2">
-						<button className="flex-1 bg-[#35314D] text-white hover:bg-[#35314D]/90">
+						<button
+							className="flex-1 bg-[#35314D] text-white hover:bg-[#35314D]/90"
+							type="button">
 							Clear
 						</button>
-						<button className="flex-1 bg-[#F24E1E] text-white hover:bg-[#F24E1E]/90">
+						<button
+							className="flex-1 bg-[#F24E1E] text-white hover:bg-[#F24E1E]/90"
+							type="button">
 							Apply
 						</button>
 					</div>
@@ -121,7 +125,8 @@ export default function page() {
 					))}
 				</div>
 				{/* 색상 섹션 */}
-				<div title="color-section" className="border-b border-white/10 py-4">
+
+				{/* <div title="color-section" className="border-b border-white/10 py-4">
 					<h2 className="mb-4 font-medium text-white">Filter By Color</h2>
 					<div className="flex flex-wrap gap-2">
 						{colors.map((color) => (
@@ -129,10 +134,11 @@ export default function page() {
 								key={color.value}
 								className="h-8 w-8 rounded-full"
 								style={{ backgroundColor: color.value }}
+								type="button"
 							/>
 						))}
 					</div>
-				</div>
+				</div> */}
 			</div>
 
 			{/* 우측 */}
@@ -140,7 +146,7 @@ export default function page() {
 				<div title="selected-filter-lists">
 					<div title="selected-filter-item">
 						<div title="filter-name">In Auction</div>
-						<div title="filter-value"></div>
+						<div title="filter-value" />
 						<div title="remove-filter-button">X</div>
 					</div>
 				</div>
@@ -149,14 +155,14 @@ export default function page() {
 				</div>
 				{/* 우측 프롬프트 카드 목록 */}
 				<div title="promptItemCard">
-					<div title="prompt-thumbnail-image"></div>
-					<div title="item-tag"></div>
+					<div title="prompt-thumbnail-image" />
+					<div title="item-tag" />
 					<div title="prompt-info-for-ItemCard">
-						<div title="star-point"></div>
-						<div title="promptName"></div>
-						<div title="modelName"></div>
-						<div title="prompt-price"></div>
-						<div title="cart-trigger-button"></div>
+						<div title="star-point" />
+						<div title="promptName" />
+						<div title="modelName" />
+						<div title="prompt-price" />
+						<div title="cart-trigger-button" />
 					</div>
 				</div>
 			</div>

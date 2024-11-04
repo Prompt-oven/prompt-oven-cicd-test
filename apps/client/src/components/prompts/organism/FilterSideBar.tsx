@@ -1,7 +1,7 @@
 import React from "react"
-import FilterGroup from "../molecule/filtering/FilterGroup"
 import { Button } from "@repo/ui/button"
 import { X } from "@repo/ui/lucide"
+import FilterGroup from "../molecule/filtering/FilterGroup"
 
 interface FilterSideBarProps {
 	filters: {

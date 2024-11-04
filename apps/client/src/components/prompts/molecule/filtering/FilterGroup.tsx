@@ -1,5 +1,5 @@
 import React from "react"
-import { Checkbox } from "@repo/ui/checkbox"
+// import { Checkbox } from "@repo/ui/checkbox"
 import FilterItem from "../../atom/filtering/FilterItem"
 
 interface FilterGroupProps {

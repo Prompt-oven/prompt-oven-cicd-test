@@ -1,8 +1,8 @@
 import React from "react"
-import FilterSideBar from "../organism/FilterSideBar"
-import PromptList from "../organism/PromptList"
 import promptListData from "@/dummy/prompts/promptListData"
-import { FilterData } from "@/types/prompts/marketPlaceType"
+import PromptList from "../organism/PromptList"
+// import FilterSideBar from "../organism/FilterSideBar"
+// import { FilterData } from "@/types/prompts/marketPlaceType"
 
 function PromptsTemplate() {
 	return (

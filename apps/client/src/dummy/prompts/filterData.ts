@@ -1,13 +1,13 @@
-import { FilterData, ActiveFilter } from "@/types/prompts/marketPlaceType"
+import type { FilterData, ActiveFilter } from "@/types/prompts/marketPlaceType"
 
-const initialFilters: FilterData = {
+export const initialFilters: FilterData = {
 	product: ["Prompts", "Apps"],
 	type: ["Image"],
 	sortBy: ["Trending"],
 	model: ["DALL-E"],
 }
 
-const initialActiveFilters: ActiveFilter[] = [
+export const initialActiveFilters: ActiveFilter[] = [
 	{ key: "product", value: "Prompts" },
 	{ key: "type", value: "Image" },
 	{ key: "sortBy", value: "Trending" },
