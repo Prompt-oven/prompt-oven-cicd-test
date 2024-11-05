@@ -21,8 +21,7 @@
     "./badge": "./src/Badge.tsx",
     "./select": "./src/Select.tsx",
     "./dropdown-menu": "./src/DropdownMenu.tsx",
-    "./radio-group": "./src/RadioGroup.tsx",
-    "./checkbox": "./src/Checkbox.tsx"
+    "./radio-group": "./src/RadioGroup.tsx"
   },
   "license": "MIT",
   "scripts": {
