@@ -1,1 +1,1 @@
-export * from '@radix-ui/react-label';
+export * from "@radix-ui/react-label"
