@@ -23,7 +23,6 @@
     "./select": "./src/Select.tsx",
     "./dropdown-menu": "./src/DropdownMenu.tsx",
     "./radio-group": "./src/RadioGroup.tsx",
-    "./checkbox": "./src/Checkbox.tsx",
     "./rating-read-only": "./src/StarRatingReadOnly.tsx"
   },
   "license": "MIT",
