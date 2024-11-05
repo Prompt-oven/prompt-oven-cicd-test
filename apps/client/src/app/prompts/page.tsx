@@ -5,6 +5,7 @@ import { ChevronDown, ChevronUp, Search } from "@repo/ui/lucide"
 import { Label } from "@repo/ui/radix-label"
 import { RadioGroup, RadioGroupItem } from "@repo/ui/radio-group"
 import { Input } from "@repo/ui/input"
+import { Button } from "@repo/ui/button"
 
 export default function Page() {
 	const categories = [
@@ -16,22 +17,16 @@ export default function Page() {
 		{ id: 6, name: "Sports" },
 		{ id: 7, name: "Puppies" },
 	]
-	// const colors = [
-	// 	{ name: "Blue", value: "#3772FF" },
-	// 	{ name: "Purple", value: "#5D5FEF" },
-	// 	{ name: "Pink", value: "#EF5DA8" },
-	// 	{ name: "Red", value: "#FF4E4E" },
-	// 	{ name: "Green", value: "#21A85A" },
-	// 	{ name: "Mint", value: "#37FFC3" },
-	// 	{ name: "White", value: "#FFFFFF" },
-	// ]
-	const collections = [
-		"Audioglyphs",
-		"Autoglyphs",
-		"CryptoCrystal",
-		"CryptoArte",
-		"CyberKongz",
+	const colors = [
+		{ name: "Blue", value: "#3772FF" },
+		{ name: "Purple", value: "#5D5FEF" },
+		{ name: "Pink", value: "#EF5DA8" },
+		{ name: "Red", value: "#FF4E4E" },
+		{ name: "Green", value: "#21A85A" },
+		{ name: "Mint", value: "#37FFC3" },
+		{ name: "White", value: "#FFFFFF" },
 	]
+
 	const [selectedCategory, setSelectedCategory] = useState<string | null>(null)
 	const [isCategoryOpen, setIsCategoryOpen] = useState<boolean>(true)
 	// const [isPriceOpen, setIsPriceOpen] = useState<boolean>(true)
@@ -93,40 +88,35 @@ export default function Page() {
 					<h2 className="mb-4 font-medium text-white">Price</h2>
 
 					<div className="space-y-4">
-						<div className="flex gap-2" />
+						<div className="flex gap-2">
+							<Input
+								type="number"
+								placeholder="Min"
+								className="border-none bg-white/10 text-white placeholder:text-white/70"
+							/>
+							<Input
+								type="number"
+								placeholder="Max"
+								className="border-none bg-white/10 text-white placeholder:text-white/70"
+							/>
+						</div>
 					</div>
 					{/* 버튼 섹션 */}
 					<div className="mt-4 flex gap-2">
-						<button
-							className="flex-1 bg-[#35314D] text-white hover:bg-[#35314D]/90"
-							type="button">
+						<Button
+							variant="secondary"
+							className="flex-1 bg-[#35314D] text-white hover:bg-[#35314D]/90">
 							Clear
-						</button>
-						<button
-							className="flex-1 bg-[#F24E1E] text-white hover:bg-[#F24E1E]/90"
-							type="button">
+						</Button>
+						<Button className="flex-1 bg-[#F24E1E] text-white hover:bg-[#F24E1E]/90">
 							Apply
-						</button>
+						</Button>
 					</div>
 				</div>
-				{/* collection 섹션 */}
-				<div
-					title="collection-section"
-					className="border-b border-white/10 py-4">
-					<h2 className="mb-4 font-medium text-white">Collection</h2>
-					{collections.map((collection) => (
-						<div
-							key={collection}
-							className="flex items-center space-x-2"
-							title="Collection-Filter">
-							<div />
-							<div className="text-sm text-white">{collection}</div>
-						</div>
-					))}
-				</div>
+
 				{/* 색상 섹션 */}
 
-				{/* <div title="color-section" className="border-b border-white/10 py-4">
+				<div title="color-section" className="border-b border-white/10 py-4">
 					<h2 className="mb-4 font-medium text-white">Filter By Color</h2>
 					<div className="flex flex-wrap gap-2">
 						{colors.map((color) => (
@@ -138,7 +128,7 @@ export default function Page() {
 							/>
 						))}
 					</div>
-				</div> */}
+				</div>
 			</div>
 
 			{/* 우측 */}
