@@ -31,21 +31,21 @@ export default function ImageCarousel({
 
 	const nextSlide = useCallback(() => {
 		setDirection(1)
-		setCurrentIndex((prevIndex) => {
-			const curIndex = (prevIndex + 1) % images.length
-			changeCallbackFn && changeCallbackFn(curIndex)
-			return curIndex
-		})
-	}, [changeCallbackFn, images.length])
+		setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length)
+	}, [images.length])
 
 	const prevSlide = useCallback(() => {
 		setDirection(-1)
-		setCurrentIndex((prevIndex) => {
-			const curIndex = (prevIndex - 1 + images.length) % images.length
-			changeCallbackFn && changeCallbackFn(curIndex)
-			return curIndex
-		})
-	}, [changeCallbackFn, images.length])
+		setCurrentIndex(
+			(prevIndex) => (prevIndex - 1 + images.length) % images.length,
+		)
+	}, [images.length])
+
+	useEffect(() => {
+		if (changeCallbackFn) {
+			changeCallbackFn(currentIndex)
+		}
+	}, [currentIndex, changeCallbackFn])
 
 	useEffect(() => {
 		// eslint-disable-next-line no-undef -- NodeJS.Timeout is a Node.js global
