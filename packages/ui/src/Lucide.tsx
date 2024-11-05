@@ -10,4 +10,6 @@ export {
   ShoppingCart,
   X,
   ChevronUp,
+  EyeOff,
+  Eye,
 } from "lucide-react";
