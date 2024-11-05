@@ -17,6 +17,7 @@
     "./label": "./src/Label.tsx",
     "./radix-label": "./src/RadixLabel.tsx",
     "./radix-slot": "./src/RadixSlot.tsx",
+    "./checkbox": "./src/CheckBox.tsx",
     "./badge": "./src/Badge.tsx",
     "./select": "./src/Select.tsx",
     "./dropdown-menu": "./src/DropdownMenu.tsx",
