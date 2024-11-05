@@ -1,18 +1,16 @@
-import React from "react"
-import ProfileBanner from "@/components/profile/organisms/ProfileBanner"
-import ProfileFilterSidebar from "@/components/profile/organisms/ProfileFilterSidebar"
-import ProfileItemFilter from "@/components/profile/organisms/ProfileItemFilter"
-import MemberInfo from "@/components/profile/organisms/ProfileMemberInfo"
-import ProfilePromptItem from "@/components/profile/organisms/ProfilePromptItem"
+import {
+	getProfileList,
+	getProfileMemberInfo,
+} from "@/action/profile/getProfileData"
+import ProfileTemplate from "@/components/profile/templates/ProfileTemplate"
 
-export default function Profile() {
+export default async function Profile() {
+	const memberData = await getProfileMemberInfo()
+	const listData = await getProfileList()
+
 	return (
-		<div>
-			<ProfileBanner />
-			<ProfilePromptItem />
-			<MemberInfo />
-			<ProfileItemFilter />
-			<ProfileFilterSidebar />
-		</div>
+		<main className="flex min-h-screen w-screen justify-center overflow-auto bg-[#111111] py-1">
+			<ProfileTemplate memberData={memberData} listData={listData} />
+		</main>
 	)
 }

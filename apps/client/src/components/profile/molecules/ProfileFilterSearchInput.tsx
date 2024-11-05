@@ -1,6 +1,6 @@
 "use client"
 
-import { Input } from "@repo/ui/input"
+import { FilterInput } from "@repo/ui/filterInput"
 import { Search } from "@repo/ui/lucide"
 
 export function ProfileFilterSearchInput({
@@ -12,7 +12,7 @@ export function ProfileFilterSearchInput({
 }) {
 	return (
 		<div className="relative">
-			<Input
+			<FilterInput
 				value={value}
 				onChange={(e) => onChange?.(e.target.value)}
 				placeholder="Search"
@@ -22,4 +22,3 @@ export function ProfileFilterSearchInput({
 		</div>
 	)
 }
-

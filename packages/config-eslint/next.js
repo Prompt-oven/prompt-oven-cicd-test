@@ -51,5 +51,6 @@ module.exports = {
     "@typescript-eslint/no-floating-promises": "off",
     "@typescript-eslint/non-nullable-type-assertion-style": "off",
     "@typescript-eslint/no-misused-promises": "off",
+    "@typescript-eslint/await-thenable": "off",
   },
 };
