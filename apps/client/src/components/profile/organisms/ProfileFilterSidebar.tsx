@@ -36,7 +36,7 @@ export default function ProfileFilterSidebar() {
 	}
 
 	return (
-		<div className="w-[264px] rounded-lg bg-opacity-20 bg-gradient-to-r from-[#FC466B] to-[#3F5EFB] p-4">
+		<div className="h-full w-1/4 rounded-lg bg-opacity-20 bg-gradient-to-r from-[#3F1C24] to-[#262038] p-4">
 			<h2 className="mb-4 font-medium text-white">FILTER BY</h2>
 
 			<ProfileFilterSearchInput
@@ -99,4 +99,3 @@ export default function ProfileFilterSidebar() {
 		</div>
 	)
 }
-

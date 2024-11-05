@@ -12,7 +12,11 @@ import {
 } from "@repo/ui/select"
 import { X } from "@repo/ui/lucide"
 
-export default function ProfileItemFilter() {
+interface PromptFilterProps {
+	promptCount: number
+}
+
+export default function ProfileItemFilter({ promptCount }: PromptFilterProps) {
 	const [selectedFilters, setSelectedFilters] = useState<string[]>([
 		"In Auction",
 	])
@@ -26,10 +30,12 @@ export default function ProfileItemFilter() {
 	}
 
 	return (
-		<div className="flex h-[60px] w-full max-w-[1130px] items-center justify-between rounded-lg border border-white/20 bg-gradient-to-r from-[#3F1C24] to-[#262038] px-4">
+		<div className="flex h-[60px] max-w-[1130px] items-center justify-between rounded-lg border border-white/20 bg-gradient-to-r from-[#3F1C24] to-[#262038] px-4">
 			{/* Left Section */}
 			<div className="flex items-center gap-4">
-				<span className="font-mulish text-sm text-white">29064886 Results</span>
+				<span className="font-mulish text-sm text-white">
+					{promptCount} Results
+				</span>
 
 				<div className="flex items-center gap-2">
 					{selectedFilters.map((filter) => (
