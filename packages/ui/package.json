@@ -13,6 +13,7 @@
     "./button": "./src/Button.tsx",
     "./avatar": "./src/Avatar.tsx",
     "./input": "./src/Input.tsx",
+    "./filterInput": "./src/FilterInput.tsx",
     "./lucide": "./src/Lucide.tsx",
     "./label": "./src/Label.tsx",
     "./radix-label": "./src/RadixLabel.tsx",
@@ -21,7 +22,8 @@
     "./select": "./src/Select.tsx",
     "./dropdown-menu": "./src/DropdownMenu.tsx",
     "./radio-group": "./src/RadioGroup.tsx",
-    "./checkbox": "./src/Checkbox.tsx"
+    "./checkbox": "./src/Checkbox.tsx",
+    "./rating-read-only": "./src/StarRatingReadOnly.tsx"
   },
   "license": "MIT",
   "scripts": {
@@ -45,6 +47,9 @@
     "typescript": "^5.3.3"
   },
   "dependencies": {
+    "@emotion/react": "^11.13.3",
+    "@emotion/styled": "^11.13.0",
+    "@mui/material": "^6.1.6",
     "@radix-ui/react-avatar": "^1.1.1",
     "@radix-ui/react-checkbox": "^1.1.2",
     "@radix-ui/react-dropdown-menu": "^2.1.2",

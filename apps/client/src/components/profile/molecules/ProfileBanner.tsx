@@ -1,7 +1,11 @@
 import Image from "next/image"
 import React from "react"
 
-export default function ProfileBanner() {
+interface ProfileBannerProps {
+	memberBanner?: string | undefined
+}
+
+export default function ProfileBanner({ memberBanner }: ProfileBannerProps) {
 	return (
 		<div className="relative flex h-[200px] justify-center px-4 md:h-[230px] xl:h-[260px]">
 			<div
@@ -9,16 +13,19 @@ export default function ProfileBanner() {
 				style={{
 					transform: "rotate(3.2deg)",
 					zIndex: 0,
-				}}></div>
-			<div className="inset-0 z-[1] overflow-hidden rounded-lg bg-[#1b1b1b]">
-				<Image
-					src="https://promptoven.s3.ap-northeast-2.amazonaws.com/dummy/Cover+Image.png"
-					sizes="(max-width: 768px) 100vw, 1400px"
-					fill
-					className=" object-fit"
-					priority
-					alt="Banner"
-				/>
+				}}
+			/>
+			<div className="absolute inset-0 z-[2] overflow-hidden rounded-lg bg-[#1b1b1b]">
+				{memberBanner ? (
+					<Image
+						src={memberBanner}
+						sizes="(max-width: 768px) 100vw, 1400px"
+						fill
+						className="rounded-lg"
+						priority
+						alt="Banner"
+					/>
+				) : null}
 			</div>
 		</div>
 	)

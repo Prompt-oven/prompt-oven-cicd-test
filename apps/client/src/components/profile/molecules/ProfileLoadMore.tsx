@@ -1,13 +1,25 @@
 import React from "react"
 
+// interface ProfileLoadMoreProps {
+// 	onClick: () => void
+// 	loading: boolean
+// }
+
 export default function ProfileLoadMore() {
 	return (
-		<div className="flex justify-center pb-20">
-			<button type="button" className="rounded-md bg-[#fc466b] py-2">
-				<span className="px-4 font-sora text-2xl text-white hover:text-[#feb9c8]">
-					Load More
-				</span>
+		<div className="mt-4 flex justify-center">
+			<button
+				type="button"
+				className="rounded-full bg-[#fc466b] px-6 py-3 text-white">
+				Load More
 			</button>
 		</div>
 	)
 }
+
+/* <button
+				onClick={onClick}
+				className={`rounded bg-blue-500 px-4 py-2 text-white ${loading ? "cursor-not-allowed opacity-50" : ""}`}
+				disabled={loading}>
+				{loading ? "Loading..." : "Load More"}
+			</button> */

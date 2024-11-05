@@ -1,18 +1,16 @@
-import ProfileLoadMore from "@/components/profile/molecules/ProfileLoadMore"
-import ProfileMemberInfo from "@/components/profile/organisms/ProfileMemberInfo"
+import {
+	getProfileList,
+	getProfileMemberInfo,
+} from "@/action/profile/getProfileData"
+import ProfileTemplate from "@/components/profile/templates/ProfileTemplate"
 
-export default function Profile() {
+export default async function Profile() {
+	const memberData = await getProfileMemberInfo()
+	const listData = await getProfileList()
+
 	return (
 		<main className="flex min-h-screen w-screen justify-center overflow-auto bg-[#111111] py-1">
-			<section className="w-full max-w-screen-2xl">
-				<ProfileMemberInfo />
-
-				{/* <ProfilePromptItem />
-			<ProfileItemFilter />
-			<ProfileFilterSidebar /> */}
-
-				<ProfileLoadMore />
-			</section>
+			<ProfileTemplate memberData={memberData} listData={listData} />
 		</main>
 	)
 }

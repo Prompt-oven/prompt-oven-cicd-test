@@ -1,5 +1,5 @@
-import MainFooter from "@/components/main/organism/MainFooter"
 import React from "react"
+import MainFooter from "@/components/main/organism/MainFooter"
 
 export default function layout({
 	children,

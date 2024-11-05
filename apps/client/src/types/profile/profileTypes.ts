@@ -1,48 +1,22 @@
-// No cache Data - Because it is data that needs to be reflected in real time.
-export interface ReviewAndFollowType {
+export interface ProfileMemberInfoType {
 	memberUUID: string
-	reviews: number
-	following: number
-	followers: number
-}
-
-// Cache Data
-export interface ProfileInfoType {
-	memberInfo: MemberInfoType
-	favoriteList: ProfileListType[]
-	registList: ProfileListType[]
-}
-
-export interface MemberInfoType {
-	memberUUID: string
-	banner?: string | undefined
-	profileImage?: string | undefined
+	bannerImageUrl?: string | undefined
+	avatarImageUrl?: string | undefined
 	nickname: string
-	bio?: string | undefined
-	xId?: string | undefined
-	instagramId?: string | undefined
-	youtubeHandle?: string | undefined
-	webLink?: string | undefined
-	allowMessage: boolean
-	acceptCustom: boolean
+	email?: string | undefined
+	joined: string
+	following: number
+	follower: number
+	viewer: number
+	sales: number
 }
 
-export interface RegistProfileType {
-	banner?: string | undefined
-	profileImage?: string | undefined
-	bio?: string | undefined
-	xId?: string | undefined
-	instagramId?: string | undefined
-	youtubeHandle?: string | undefined
-	webLink?: string | undefined
-	allowMessage: boolean
-	acceptCustom: boolean
-}
-
-export interface ProfileListType {
+export interface ProfileListCardType {
 	productUUID: string
 	thumbnailUrl: string
-	categoryName: string
 	productName: string
-	productPrice: string
+	categoryName: string
+	productStar: number
+	productPrice: number
+	productRegistDate: string
 }

@@ -29,8 +29,7 @@ export function ProfileFilterSection({
 					<ChevronDown className="h-4 w-4 text-white/70" />
 				)}
 			</button>
-			{isOpen && <div className="space-y-2">{children}</div>}
+			{isOpen ? <div className="space-y-2">{children}</div> : null}
 		</div>
 	)
 }
-
