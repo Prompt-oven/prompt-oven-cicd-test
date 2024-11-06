@@ -6,9 +6,20 @@
     "lint": "turbo lint",
     "type-check": "turbo type-check",
     "clean": "turbo clean",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "prepare": "husky",
+    "lint-staged": "lint-staged"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,css}": [
+      "eslint --cache --fix",
+      "prettier --cache --ignore-unknown --write"
+    ],
+    "*.{md, json}": "prettier --cache --write"
   },
   "devDependencies": {
+    "husky": "^9.1.6",
+    "lint-staged": "^15.2.10",
     "prettier": "^3.2.5",
     "prettier-plugin-tailwindcss": "^0.6.8",
     "turbo": "^2.2.1"

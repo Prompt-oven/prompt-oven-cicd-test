@@ -9,9 +9,7 @@ interface EmailInputProps {
 	placeholder?: string
 }
 
-const EmailInput: React.FC<EmailInputProps> = ({
-	placeholder = "Email here...",
-}) => {
+function EmailInput({ placeholder = "Email here..." }: EmailInputProps) {
 	return (
 		<div className="relative w-full max-w-[670px]">
 			<Input
