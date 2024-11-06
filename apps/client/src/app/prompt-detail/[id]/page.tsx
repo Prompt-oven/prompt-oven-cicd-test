@@ -7,7 +7,7 @@ export default async function PromptDetail() {
 	const productReview = await getProductReview()
 
 	return (
-		<main className="flex min-h-screen w-screen justify-center overflow-auto bg-[#111111] py-20">
+		<main className="flex min-h-screen w-screen flex-col justify-center overflow-auto bg-[#111111] p-20">
 			<PromptDetailTemplate
 				productDetail={productDetail}
 				productReview={productReview}

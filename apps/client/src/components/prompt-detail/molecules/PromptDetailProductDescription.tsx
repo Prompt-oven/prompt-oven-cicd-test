@@ -1,3 +1,5 @@
+"use client"
+
 import { useState } from "react"
 import { Card, CardContent } from "@repo/ui/card"
 import { ArrowDownCircleIcon, ArrowUpCircleIcon } from "@repo/ui/lucide"

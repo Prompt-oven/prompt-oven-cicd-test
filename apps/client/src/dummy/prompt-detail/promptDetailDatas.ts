@@ -16,6 +16,7 @@ export const ProductDetailData: PromptDetailInfoType = {
 	memberProfileImage:
 		"https://promptoven.s3.ap-northeast-2.amazonaws.com/dummy/profile/TestAvartar.png",
 	memberNickname: "나는 판매자 별칭",
+	isBuy: true,
 	isCart: false,
 	isFavorite: false,
 }
