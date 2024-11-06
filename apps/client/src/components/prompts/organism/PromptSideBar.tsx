@@ -26,10 +26,9 @@ function PromptSideBar() {
 		{ name: "White", value: "#FFFFFF" },
 	]
 
-	const [selectedCategory, setSelectedCategory] = useState<string | null>(null)
 	const [isCategoryOpen, setIsCategoryOpen] = useState<boolean>(true)
 
-	console.log(selectedCategory)
+	// console.log(selectedCategory)
 	return (
 		<aside
 			className="w-[264px] rounded-lg bg-opacity-20 bg-gradient-to-r from-[#FC466B] to-[#3F5EFB] p-4"
@@ -67,7 +66,6 @@ function PromptSideBar() {
 								<RadioGroupItem
 									className="border-white/70 text-white"
 									value={category.name}
-									onChange={() => setSelectedCategory(category.name)}
 								/>
 								<Label
 									className="mt-1 text-sm text-white"

@@ -10,7 +10,7 @@ interface FilterItemProps {
 function FilterItem({ optionTitle, checked, onChange }: FilterItemProps) {
 	return (
 		<div className="flex items-center space-x-2">
-			<Checkbox id={optionTitle} checked={checked} onCheckedChange={onChange} />
+			<CheckBox id={optionTitle} checked={checked} onCheckedChange={onChange} />
 			<label className="text-sm font-medium text-gray-300">{optionTitle}</label>
 		</div>
 	)
