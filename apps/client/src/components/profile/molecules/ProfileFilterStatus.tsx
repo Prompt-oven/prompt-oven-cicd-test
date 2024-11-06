@@ -1,6 +1,6 @@
 "use client"
 
-import { Checkbox } from "@repo/ui/checkbox"
+import { CheckBox } from "@repo/ui/checkbox"
 import { Label } from "@repo/ui/label"
 
 const statuses = ["Buy Now", "In Auction", "Looking to Sell", "Has Offers"]
@@ -16,7 +16,7 @@ export function ProfileFilterStatus({
 		<div className="space-y-2">
 			{statuses.map((status) => (
 				<div key={status} className="flex items-center space-x-2">
-					<Checkbox
+					<CheckBox
 						id={status}
 						checked={values.includes(status)}
 						onCheckedChange={(checked) => {
@@ -36,4 +36,3 @@ export function ProfileFilterStatus({
 		</div>
 	)
 }
-
