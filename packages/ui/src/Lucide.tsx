@@ -12,4 +12,9 @@ export {
 	ChevronUp,
 	EyeOff,
 	Eye,
+	Heart,
+	ShoppingBag,
+	ShoppingCartIcon,
+	ArrowUpCircleIcon,
+	ArrowDownCircleIcon,
 } from "lucide-react"
