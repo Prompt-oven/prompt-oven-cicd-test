@@ -20,7 +20,8 @@ export const ProductReviewDatas: PromptReviewType = {
 			memberProfileImage:
 				"https://promptoven.s3.ap-northeast-2.amazonaws.com/dummy/profile/TestAvartar.png",
 			memberNickname: "ChocoChoc",
-			content: "가격 대비 성능이 좋습니다.",
+			content:
+				"가격 대비 성능이 좋습니다.가격 대비 성능이 좋습니다.가격 대비 성능이 좋습니다.가격 대비 성능이 좋습니다.가격 대비 성능이 좋습니다.가격 대비 성능이 좋습니다.가격 대비 성능이 좋습니다.",
 			createdAt: "2024-11-02T12:30:00.000Z",
 			updatedAt: "2024-11-02T12:30:00.000Z",
 		},
@@ -42,7 +43,8 @@ export const ProductReviewDatas: PromptReviewType = {
 			memberProfileImage:
 				"https://promptoven.s3.ap-northeast-2.amazonaws.com/dummy/profile/TestAvartar.png",
 			memberNickname: "ChocoChoc",
-			content: "디자인이 마음에 듭니다. 자주 사용하고 있어요.",
+			content:
+				"디자인이 마음에 듭니다. 자주 사용하고 있어요.디자인이 마음에 듭니다. 디자인이 마음에 듭니다. 자주 사용하고 있어요.디자인이 마음에 듭니다. 디자인이 마음에 듭니다. 자주 사용하고 있어요.디자인이 마음에 듭니다. 디자인이 마음에 듭니다. 자주 사용하고 있어요.디자인이 마음에 듭니다. 디자인이 마음에 듭니다. 자주 사용하고 있어요.디자인이 마음에 듭니다. 디자인이 마음에 듭니다. 자주 사용하고 있어요.디자인이 마음에 듭니다. 자주 사용하고 있어요.디자인이 마음에 듭니다. 자주 사용하고 있어요.디자인이 마음에 듭니다. 자주 사용하고 있어요.디자인이 마음에 듭니다. 자주 사용하고 있어요.디자인이 마음에 듭니다. 자주 사용하고 있어요.디자인이 마음에 듭니다. 자주 사용하고 있어요.",
 			createdAt: "2024-11-04T09:15:00.000Z",
 			updatedAt: "2024-11-04T09:15:00.000Z",
 		},

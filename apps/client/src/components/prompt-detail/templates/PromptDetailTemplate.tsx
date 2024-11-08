@@ -1,7 +1,9 @@
 import type { PromptDetailInfoType } from "@/types/prompt-detail/promptDetailType"
 import type { PromptReviewType } from "@/types/review/reviewType"
 import PromptDetailInfo from "../organisms/PromptDetailInfo"
+import PromptDetailReviewCount from "../organisms/PromptDetailReviewCount"
 import PromptDetailThumbnail from "../organisms/PromptDetailThumbnail"
+import PromptReviewContents from "../organisms/PromptReviewContents"
 
 interface PromptDetailProps {
 	productDetail: PromptDetailInfoType
@@ -28,8 +30,8 @@ export default function PromptDetailTemplate({
 			</div>
 
 			<div className="container mx-auto flex flex-col gap-8 text-white">
-				<div className="text-4xl font-semibold">Prompt reviews</div>
-				<div className="bg-[#1b1b1b]">{productReview.content[1].id}</div>
+				<PromptDetailReviewCount reviewCount={productReview.content.length} />
+				<PromptReviewContents productReview={productReview} />
 			</div>
 		</section>
 	)

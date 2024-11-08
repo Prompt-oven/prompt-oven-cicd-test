@@ -1,6 +1,6 @@
+import React from "react"
 import { Button } from "@repo/ui/button"
 import { ShoppingBag } from "@repo/ui/lucide"
-import React from "react"
 
 export default function PromptDetailGet() {
 	return (
