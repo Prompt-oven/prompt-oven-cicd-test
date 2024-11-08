@@ -19,6 +19,7 @@ export default function PromptDetailThumbnail({
 				alt={productUUID}
 				fill
 				className="object-cover"
+				priority
 			/>
 		</div>
 	)

@@ -11,6 +11,7 @@ export interface PromptDetailInfoType {
 	bio: string | undefined
 	memberProfileImage: string | undefined
 	memberNickname: string | undefined
+	isBuy: boolean
 	isCart: boolean
 	isFavorite: boolean
 }

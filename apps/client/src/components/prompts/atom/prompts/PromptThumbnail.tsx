@@ -15,6 +15,7 @@ function PromptThumbnail({ imageUrl, title }: PromptThumbnailProps) {
 			src={imageUrl || defaultImageUrl}
 			alt={title}
 			className="h-40 w-full rounded-t-lg object-cover"
+			priority
 		/>
 	)
 }

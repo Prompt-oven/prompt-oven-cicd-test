@@ -10,8 +10,10 @@ export interface PromptReviewType {
 export interface ReviewContentType {
 	id: number // 리뷰 ID
 	productUuid: string // 제품 UUID
-	memberUuid: string // 회원 UUID
 	content: string // 리뷰 내용
 	createdAt: string // 생성 일자 (ISO 8601 형식)
 	updatedAt: string // 업데이트 일자 (ISO 8601 형식)
+	memberUuid: string // 회원 UUID
+	memberProfileImage: string | undefined // 회원 프로필
+	memberNickname: string //회원 별칭
 }
