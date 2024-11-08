@@ -14,6 +14,6 @@ export interface ReviewContentType {
 	createdAt: string // 생성 일자 (ISO 8601 형식)
 	updatedAt: string // 업데이트 일자 (ISO 8601 형식)
 	memberUuid: string // 회원 UUID
-	memberProfileImage: string // 회원 프로필
+	memberProfileImage: string | undefined // 회원 프로필
 	memberNickname: string //회원 별칭
 }
