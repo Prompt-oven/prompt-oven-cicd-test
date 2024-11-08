@@ -1,5 +1,3 @@
-"use client"
-
 import { CheckBox } from "@repo/ui/checkbox"
 import { Label } from "@repo/ui/label"
 

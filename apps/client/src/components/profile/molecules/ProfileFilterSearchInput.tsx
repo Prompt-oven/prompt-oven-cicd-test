@@ -1,5 +1,3 @@
-"use client"
-
 import { FilterInput } from "@repo/ui/filterInput"
 import { Search } from "@repo/ui/lucide"
 

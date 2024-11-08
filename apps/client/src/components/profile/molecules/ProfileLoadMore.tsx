@@ -7,7 +7,7 @@ import React from "react"
 
 export default function ProfileLoadMore() {
 	return (
-		<div className="mt-4 flex justify-center">
+		<div className="mt-20 flex justify-center">
 			<button
 				type="button"
 				className="rounded-full bg-[#fc466b] px-6 py-3 text-white">
