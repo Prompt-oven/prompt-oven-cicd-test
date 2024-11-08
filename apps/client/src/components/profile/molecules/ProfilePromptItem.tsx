@@ -17,7 +17,7 @@ export default function ProfilePromptItem({ productInfo }: ProfileCardProps) {
 
 	return (
 		<Card className="relative flex h-full w-full max-w-[400px] flex-col overflow-hidden rounded-md border-0 shadow-md">
-			<div className="relative h-[300px] w-full">
+			<div className="relative h-[220px] lg:h-[190px] xl:h-[220px]">
 				<Image
 					src={productInfo.thumbnailUrl}
 					sizes="(max-width: 768px) 100vw, 1400px"
@@ -30,7 +30,7 @@ export default function ProfilePromptItem({ productInfo }: ProfileCardProps) {
 				</Badge>
 				<Button
 					size="icon"
-					className="absolute bottom-[-28px] right-4 z-10 h-14 w-14 rounded-full bg-[#AD20F2] shadow-lg shadow-[#514FD7]/40 hover:bg-[#AD20F2]/90">
+					className="absolute bottom-[-16px] right-3 z-10 h-8 w-8 rounded-full bg-[#AD20F2] shadow-lg shadow-[#514FD7]/40 hover:bg-[#AD20F2]/90">
 					<ShoppingCart className="h-6 w-6" />
 				</Button>
 			</div>

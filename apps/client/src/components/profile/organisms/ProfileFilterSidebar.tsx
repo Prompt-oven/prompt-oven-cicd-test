@@ -1,25 +1,21 @@
 "use client"
 
-import { useState } from "react"
 import { Button } from "@repo/ui/button"
+import { useState } from "react"
+import { ProfileFilterCategory } from "../molecules/ProfileFilterCategory"
+import { ProfileFilterPrice } from "../molecules/ProfileFilterPrice"
 import { ProfileFilterSearchInput } from "../molecules/ProfileFilterSearchInput"
 import { ProfileFilterSection } from "../molecules/ProfileFilterSection"
-import { ProfileFilterCategory } from "../molecules/ProfileFilterCategory"
 import { ProfileFilterStatus } from "../molecules/ProfileFilterStatus"
-import { ProfileFilterColor } from "../molecules/ProfileFilterColor"
-import { ProfileFilterCollection } from "../molecules/ProfileFilterCollection"
-import { ProfileFilterPrice } from "../molecules/ProfileFilterPrice"
 
 export default function ProfileFilterSidebar() {
 	const [filters, setFilters] = useState({
 		search: "",
 		category: "",
 		status: [] as string[],
-		currency: "ETH",
 		minPrice: "",
 		maxPrice: "",
-		collection: "",
-		colors: [] as string[],
+		// colors: [] as string[],
 	})
 
 	const handleClear = () => {
@@ -27,16 +23,14 @@ export default function ProfileFilterSidebar() {
 			search: "",
 			category: "",
 			status: [],
-			currency: "ETH",
 			minPrice: "",
 			maxPrice: "",
-			collection: "",
-			colors: [],
+			// colors: [],
 		})
 	}
 
 	return (
-		<div className="h-full w-1/4 rounded-lg bg-opacity-20 bg-gradient-to-r from-[#3F1C24] to-[#262038] p-4">
+		<div className="h-full w-full rounded-lg bg-opacity-20 bg-gradient-to-r from-[#3F1C24] to-[#262038] p-4 sm:max-w-[200px]">
 			<h2 className="mb-4 font-medium text-white">FILTER BY</h2>
 
 			<ProfileFilterSearchInput
@@ -60,10 +54,6 @@ export default function ProfileFilterSidebar() {
 
 			<ProfileFilterSection title="Price">
 				<ProfileFilterPrice
-					currency={filters.currency}
-					onCurrencyChange={(value) =>
-						setFilters({ ...filters, currency: value })
-					}
 					minValue={filters.minPrice}
 					maxValue={filters.maxPrice}
 					onMinChange={(value) => setFilters({ ...filters, minPrice: value })}
@@ -71,19 +61,12 @@ export default function ProfileFilterSidebar() {
 				/>
 			</ProfileFilterSection>
 
-			<ProfileFilterSection title="Collection">
-				<ProfileFilterCollection
-					value={filters.collection}
-					onChange={(value) => setFilters({ ...filters, collection: value })}
-				/>
-			</ProfileFilterSection>
-
-			<ProfileFilterSection title="Filter By Color">
+			{/* <ProfileFilterSection title="Filter By Color">
 				<ProfileFilterColor
 					selected={filters.colors}
 					onChange={(values) => setFilters({ ...filters, colors: values })}
 				/>
-			</ProfileFilterSection>
+			</ProfileFilterSection> */}
 
 			<div className="mt-4 flex gap-2">
 				<Button

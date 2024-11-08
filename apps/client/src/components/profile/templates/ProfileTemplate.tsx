@@ -21,10 +21,10 @@ export default function ProfileTemplate({
 	listData,
 }: ProfileDataProps) {
 	return (
-		<section className="m-20 w-full max-w-screen-2xl md:m-24 xl:m-32">
+		<section className="mx-2 mt-12 w-full max-w-screen-2xl sm:m-20 md:m-24 xl:m-32">
 			<ProfileMemberInfo memberData={memberData} />
 
-			<div className="mx-10 mb-16 flex gap-8">
+			<div className="mx-10 mb-16 flex flex-col gap-8 sm:flex-row">
 				<ProfileFilterSidebar />
 				<div className="flex w-full flex-col gap-8">
 					<ProfileItemFilter promptCount={listData.length} />
