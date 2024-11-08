@@ -5,19 +5,15 @@ import { Badge } from "@repo/ui/badge"
 import { Button } from "@repo/ui/button"
 import StarRate from "@repo/ui/rating-read-only"
 import type { ProfileListCardType } from "@/types/profile/profileTypes"
+import { PromptCardDateFormatted, PromptIsNew } from "@/lib/utils"
 
 interface ProfileCardProps {
 	productInfo: ProfileListCardType
 }
 
 export default function ProfilePromptItem({ productInfo }: ProfileCardProps) {
-	const today = new Date()
-	const registDate = new Date(productInfo.productRegistDate)
-
-	const isNew = registDate.toDateString() === today.toDateString()
-	const formattedDate = registDate
-		.toLocaleDateString("ko-KR")
-		.replace(/\.$/, "")
+	const formattedDate = PromptCardDateFormatted(productInfo.productRegistDate)
+	const isNew = PromptIsNew(productInfo.productRegistDate)
 
 	return (
 		<Card className="relative flex h-full w-full max-w-[400px] flex-col overflow-hidden rounded-md border-0 shadow-md">

@@ -12,6 +12,7 @@ export const profileMemberInfoUndefineData: ProfileMemberInfoType = {
 	follower: 2365121,
 	viewer: 413487,
 	sales: 412,
+	isViewStatus: false,
 }
 
 //프로필 멤버 정보 - undefined 정보 미포함
@@ -21,13 +22,16 @@ export const profileMemberInfoData: ProfileMemberInfoType = {
 		"https://promptoven.s3.ap-northeast-2.amazonaws.com/dummy/profile/ProfileBanner.png",
 	avatarImageUrl:
 		"https://promptoven.s3.ap-northeast-2.amazonaws.com/dummy/profile/TestAvartar.png",
-	nickname: "촉촉한사람",
+	hashTag: "이히히 해시태그",
+	bio: "촉촉한 초코칩 구한 포파포프씨는 스미스무스므를 떠난다. 포파포프씨는 딸인 파푸포푸에게 촉촉한 초코칩을 줄 것이다.",
 	email: "chockchock@gmail.com",
+	nickname: "촉촉한사람",
 	joined: "2024-11-04",
 	following: 12423,
 	follower: 2365121,
 	viewer: 413487,
 	sales: 4121,
+	isViewStatus: true,
 }
 
 export const profileListData: ProfileListCardType[] = [
@@ -39,7 +43,7 @@ export const profileListData: ProfileListCardType[] = [
 		categoryName: "Category1",
 		productStar: 4.7,
 		productPrice: 14000,
-		productRegistDate: "2024-11-04",
+		productRegistDate: "2024-11-08",
 	},
 	{
 		productUUID: "pr-od-uc-t2",

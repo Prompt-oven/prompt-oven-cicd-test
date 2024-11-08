@@ -15,3 +15,22 @@ export const ReviewDateFormatted = (dateString: string) => {
 	const formattedMinutes = minutes < 10 ? `0${minutes}` : minutes
 	return `at ${formattedHours}.${formattedMinutes} ${ampm}`
 }
+
+//Date Format like -> 2024.xx.xx
+export const PromptCardDateFormatted = (dateString: string) => {
+	const registDate = new Date(dateString)
+	return registDate.toLocaleDateString("ko-KR").replace(/\.$/, "")
+}
+
+//Regist Date is Today?
+export const PromptIsNew = (dateString: string) => {
+	return new Date().toDateString() === new Date(dateString).toDateString()
+}
+
+//Follower Format
+export const formatFollowers = (count: number) => {
+	if (count >= 1000) {
+		return `${(count / 1000).toFixed(1)}K` // 소수점 한 자리까지 표시
+	}
+	return count.toString() // 1,000 미만은 그대로 반환
+}
