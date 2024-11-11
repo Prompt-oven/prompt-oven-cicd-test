@@ -31,7 +31,10 @@ export default function PromptDetailTemplate({
 
 			<div className="container mx-auto flex flex-col gap-8 text-white">
 				<PromptDetailReviewCount reviewCount={productReview.content.length} />
-				<PromptReviewContents productReview={productReview} />
+				<PromptReviewContents
+					productDetail={productDetail}
+					productReview={productReview}
+				/>
 			</div>
 		</section>
 	)
