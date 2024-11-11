@@ -1,4 +1,4 @@
-import {
+import type {
 	SearchResultCreatorType,
 	SearchResultPromptType,
 } from "../../types/search/searchResultType"
@@ -7,6 +7,7 @@ import {
 
 export const searchResultCreatorData: SearchResultCreatorType[] = [
 	{
+		id: "c1",
 		backgroundImg: "https://example.com/images/background1.jpg",
 		thumbnail:
 			"https://firebasestorage.googleapis.com/v0/b/promptbase.appspot.com/o/DALLE_IMAGES%2FSgMDFwI82YZrz5Pdy7Rwk6gr6BT2%2Fresized%2F1717758326123f_200x200.webp?alt=media&token=9e384c86-7835-4926-b61f-211c9b1eaa27",
@@ -16,6 +17,7 @@ export const searchResultCreatorData: SearchResultCreatorType[] = [
 		follower: 1020,
 	},
 	{
+		id: "c2",
 		backgroundImg: "https://example.com/images/background2.jpg",
 		thumbnail:
 			"https://assets.promptbase.com/DALLE_IMAGES%2FjpZeUIRoulZbjQ54szN73egJuYD2%2Fresized%2F1711048326725o_200x200.webp?alt=media&token=513d704f-5f97-4caf-b8dc-d202cb1696de",
@@ -25,6 +27,7 @@ export const searchResultCreatorData: SearchResultCreatorType[] = [
 		follower: 1785,
 	},
 	{
+		id: "c3",
 		backgroundImg: "https://example.com/images/background3.jpg",
 		thumbnail:
 			"https://assets.promptbase.com/DALLE_IMAGES%2FL6I297HGVwUTboiFkGKUhfOcamX2%2Fresized%2F1727459442954h_200x200.webp?alt=media&token=7fde7876-aacf-43bf-9c60-4f0b4906ec11",
@@ -34,6 +37,7 @@ export const searchResultCreatorData: SearchResultCreatorType[] = [
 		follower: 390,
 	},
 	{
+		id: "c4",
 		backgroundImg: "https://example.com/images/background4.jpg",
 		thumbnail:
 			"https://firebasestorage.googleapis.com/v0/b/promptbase.appspot.com/o/DALLE_IMAGES%2FYCn63vG1tWgkVKcg2APQLDofp6u2%2Fresized%2F1687590023041_200x200.webp?alt=media&token=19b3fe44-6eac-4ba6-97b3-bfe1015aa6d8",

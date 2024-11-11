@@ -1,7 +1,41 @@
-import React from "react"
+"use client"
 
-function SearchDropdown() {
-	return <div>SearchDropdown</div>
+import React from "react"
+import { useRouter } from "next/navigation"
+import type {
+	SearchResultCreatorType,
+	SearchResultPromptType,
+} from "@/types/search/searchResultType"
+import SearchCreatorsItem from "../atom/SearchCreatorsItem"
+import SearchPromptsItem from "../atom/SearchPromptsItem"
+
+interface SearchDropdownProps {
+	creators: SearchResultCreatorType[]
+	prompts: SearchResultPromptType[]
+}
+
+function SearchDropdown({ creators, prompts }: SearchDropdownProps) {
+	const router = useRouter()
+	return (
+		<div className="z-[1000]">
+			{creators.length > 0 &&
+				creators.map((creator) => (
+					<SearchCreatorsItem
+						key={creator.id}
+						creator={creator}
+						onClick={() => router.push(`/profile/${creator.id}`)}
+					/>
+				))}
+			{prompts.length > 0 &&
+				prompts.map((prompt) => (
+					<SearchPromptsItem
+						key={prompt.id}
+						prompt={prompt}
+						onClick={() => router.push(`/prompt-detail/${prompt.id}`)}
+					/>
+				))}
+		</div>
+	)
 }
 
 export default SearchDropdown

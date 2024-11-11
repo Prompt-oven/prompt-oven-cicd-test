@@ -14,4 +14,5 @@ export interface SearchResultCreatorType {
 	rank: number
 	rating: number
 	follower: number
+	id: string
 }
