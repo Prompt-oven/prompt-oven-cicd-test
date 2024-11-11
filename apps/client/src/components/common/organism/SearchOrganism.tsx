@@ -29,10 +29,10 @@ function SearchOrganism() {
 	return (
 		<div>
 			<SearchInput
-				query={query}
-				setQuery={setQuery}
+				value={query}
 				onFocus={handleFocus}
 				onBlur={handleBlur}
+				onChange={(e) => setQuery(e.target.value)}
 			/>
 			{open && query.length > 0 && (
 				<SearchDropdown creators={creators} prompts={prompts} />
