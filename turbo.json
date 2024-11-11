@@ -19,10 +19,12 @@
         "GOOGLE_CLIENT_ID",
         "GOOGLE_CLIENT_SECRET",
         "KAKAO_CLIENT_ID",
-        "KAKAO_CLIENT_SECRET"
+        "KAKAO_CLIENT_SECRET",
+        "API_BASE_URL"
       ]
     },
     "lint": {},
+    "lint-staged": {},
     "type-check": {},
     "dev": {
       "cache": false,
