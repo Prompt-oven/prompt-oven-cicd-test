@@ -1,4 +1,4 @@
-import {
+import type {
 	SearchResultCreatorType,
 	SearchResultPromptType,
 } from "@/types/search/searchResultType"
@@ -12,7 +12,9 @@ interface FetchSearchResults {
 	prompts: SearchResultPromptType[]
 }
 
-export async function useFetchSearchResults(): Promise<FetchSearchResults> {
+export async function fetchSearchResults(
+	query: string,
+): Promise<FetchSearchResults> {
 	// query: string,
 	// // 상품 검색 결과 fetch
 	// const productResponse = await fetch(`/v1/search/product?q=${query}`);
@@ -27,6 +29,7 @@ export async function useFetchSearchResults(): Promise<FetchSearchResults> {
 	//   products: productData,
 	// };
 
+	const _query = query
 	return {
 		creators: searchResultCreatorData,
 		prompts: searchResultPromptData,
