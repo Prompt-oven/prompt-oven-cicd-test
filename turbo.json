@@ -24,7 +24,6 @@
       ]
     },
     "lint": {},
-    "lint-staged": {},
     "type-check": {},
     "dev": {
       "cache": false,
