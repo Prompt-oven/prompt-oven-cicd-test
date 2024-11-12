@@ -23,7 +23,7 @@ function SearchCreatorsItem({
 				height={48}
 			/>
 			<div className="pointer-events-none min-w-0 flex-1">
-				<div className="pointer-events-none truncate font-medium">
+				<div className="text-muted-foreground pointer-events-none truncate text-left font-medium">
 					{creator.nickname}
 				</div>
 				<div className="text-muted-foreground pointer-events-none flex items-center gap-2 text-sm">
@@ -31,7 +31,7 @@ function SearchCreatorsItem({
 						{creator.rank}
 					</span>
 					<span className="pointer-events-none flex items-center">
-						<Star className="fill-primary pointer-events-none mr-1 h-3 w-3" />
+						<Star className="fill-primary pointer-events-none mr-1 h-3 w-3 fill-current" />
 						{creator.rating}
 					</span>
 					<span>{creator.follower} followers</span>

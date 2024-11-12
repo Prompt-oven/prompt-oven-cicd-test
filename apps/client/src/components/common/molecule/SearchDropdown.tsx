@@ -18,25 +18,29 @@ function SearchDropdown({ creators, prompts }: SearchDropdownProps) {
 	const router = useRouter()
 	return (
 		<div className="z-[1000]">
-			Creators
-			{creators.length > 0 &&
-				creators.map((creator) => (
-					<SearchCreatorsItem
-						key={creator.id}
-						creator={creator}
-						onClick={() => router.push(`/profile/${creator.id}`)}
-					/>
-				))}
+			<div>
+				<div className="text-m p-2 pt-3 text-white">Prompts</div>
+				{prompts.length > 0 &&
+					prompts.map((prompt) => (
+						<SearchPromptsItem
+							key={prompt.id}
+							prompt={prompt}
+							onClick={() => router.push(`/prompt-detail/${prompt.id}`)}
+						/>
+					))}
+			</div>
 			<hr />
-			Prompts
-			{prompts.length > 0 &&
-				prompts.map((prompt) => (
-					<SearchPromptsItem
-						key={prompt.id}
-						prompt={prompt}
-						onClick={() => router.push(`/prompt-detail/${prompt.id}`)}
-					/>
-				))}
+			<div>
+				<div className="text-m p-2 pt-3 text-white">Creators</div>
+				{creators.length > 0 &&
+					creators.map((creator) => (
+						<SearchCreatorsItem
+							key={creator.id}
+							creator={creator}
+							onClick={() => router.push(`/profile/${creator.id}`)}
+						/>
+					))}
+			</div>
 		</div>
 	)
 }

@@ -13,7 +13,7 @@ function SearchPromptsItem({
 	return (
 		<button
 			type="button"
-			className="hover:bg-muted flex cursor-pointer items-center gap-3 rounded-lg p-2"
+			className="flex w-full cursor-pointer items-start gap-3 rounded-lg p-2 hover:bg-white"
 			onClick={onClick}>
 			<Image
 				src={prompt.thumbnail || "/placeholder.svg"}
@@ -22,17 +22,21 @@ function SearchPromptsItem({
 				width={64}
 				height={64}
 			/>
-			<div className="min-w-0 flex-1">
-				<div className="truncate font-medium">{prompt.title}</div>
-				<div className="text-muted-foreground flex items-center gap-2 text-sm">
-					{prompt.model}
+			<div className="text-muted-foreground flex min-w-0 flex-col items-start justify-between">
+				<div className="text-muted-foreground truncate font-medium">
+					{prompt.title}
+				</div>
+				<div className="text-muted-foreground text-sm">{prompt.model}</div>
+				<div className="text-muted-foreground flex items-center gap-4 text-sm">
 					<span className="flex items-center">
-						<Star className="fill-primary text-primary mr-1 h-3 w-3" />
+						<Star className="text-muted-foreground mr-1 h-3 w-3 fill-current" />
 						{prompt.rating}
+					</span>
+					<span className="text-muted-foreground ml-auto font-medium">
+						$ {prompt.price}
 					</span>
 				</div>
 			</div>
-			<div className="text-sm font-medium">${prompt.price}</div>
 		</button>
 	)
 }
