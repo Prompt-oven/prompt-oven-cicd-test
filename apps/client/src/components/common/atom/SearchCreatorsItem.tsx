@@ -13,21 +13,25 @@ function SearchCreatorsItem({
 	return (
 		<button
 			type="button"
-			className="hover:bg-muted flex cursor-pointer items-center gap-3 rounded-lg p-2"
+			className="flex w-full cursor-pointer items-center gap-3 rounded-lg p-2 hover:bg-white"
 			onClick={onClick}>
 			<Image
 				src={creator.thumbnail || "/placeholder.svg"}
 				alt="creator's thumbnail"
-				className="rounded-full object-cover"
+				className="pointer-events-none rounded-full object-cover"
 				width={48}
 				height={48}
 			/>
-			<div className="min-w-0 flex-1">
-				<div className="truncate font-medium">{creator.nickname}</div>
-				<div className="text-muted-foreground flex items-center gap-2 text-sm">
-					<span className="text-primary font-medium">{creator.rank}</span>
-					<span className="flex items-center">
-						<Star className="fill-primary text-primary mr-1 h-3 w-3" />
+			<div className="pointer-events-none min-w-0 flex-1">
+				<div className="pointer-events-none truncate font-medium">
+					{creator.nickname}
+				</div>
+				<div className="text-muted-foreground pointer-events-none flex items-center gap-2 text-sm">
+					<span className="pointer-events-none font-medium">
+						{creator.rank}
+					</span>
+					<span className="pointer-events-none flex items-center">
+						<Star className="fill-primary pointer-events-none mr-1 h-3 w-3" />
 						{creator.rating}
 					</span>
 					<span>{creator.follower} followers</span>

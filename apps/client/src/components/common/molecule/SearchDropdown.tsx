@@ -18,6 +18,7 @@ function SearchDropdown({ creators, prompts }: SearchDropdownProps) {
 	const router = useRouter()
 	return (
 		<div className="z-[1000]">
+			Creators
 			{creators.length > 0 &&
 				creators.map((creator) => (
 					<SearchCreatorsItem
@@ -26,6 +27,8 @@ function SearchDropdown({ creators, prompts }: SearchDropdownProps) {
 						onClick={() => router.push(`/profile/${creator.id}`)}
 					/>
 				))}
+			<hr />
+			Prompts
 			{prompts.length > 0 &&
 				prompts.map((prompt) => (
 					<SearchPromptsItem
