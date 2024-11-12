@@ -27,7 +27,7 @@ function SearchOrganism() {
 	const handleFocus = () => setOpen(true)
 	const handleBlur = () => setTimeout(() => setOpen(false), 100)
 	return (
-		<div>
+		<div className="relative w-[40rem]">
 			<SearchInput
 				value={query}
 				onFocus={handleFocus}
@@ -35,7 +35,9 @@ function SearchOrganism() {
 				onChange={(e) => setQuery(e.target.value)}
 			/>
 			{open && query.length > 0 && (
-				<SearchDropdown creators={creators} prompts={prompts} />
+				<div className="absolute left-0 top-full z-10 w-full">
+					<SearchDropdown creators={creators} prompts={prompts} />
+				</div>
 			)}
 		</div>
 	)

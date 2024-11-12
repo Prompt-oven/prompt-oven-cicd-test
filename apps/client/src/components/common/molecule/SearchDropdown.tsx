@@ -17,7 +17,7 @@ interface SearchDropdownProps {
 function SearchDropdown({ creators, prompts }: SearchDropdownProps) {
 	const router = useRouter()
 	return (
-		<div className="z-[1000]">
+		<div className="bg-neutral-400">
 			<div>
 				<div className="text-m p-2 pt-3 text-white">Prompts</div>
 				{prompts.length > 0 &&
@@ -29,7 +29,7 @@ function SearchDropdown({ creators, prompts }: SearchDropdownProps) {
 						/>
 					))}
 			</div>
-			<hr />
+			<hr className="mt-3" />
 			<div>
 				<div className="text-m p-2 pt-3 text-white">Creators</div>
 				{creators.length > 0 &&

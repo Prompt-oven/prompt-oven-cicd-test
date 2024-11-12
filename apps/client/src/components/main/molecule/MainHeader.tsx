@@ -19,7 +19,7 @@ export default function MainHeader() {
 				</div>
 
 				{/* Search Bar */}
-				<div className="box-border hidden h-full max-w-2xl flex-1 border-x border-[#424242] px-10 md:flex">
+				<div className="box-border hidden h-full max-w-2xl flex-1 items-center border-x border-[#424242] px-10 md:flex">
 					<SearchOrganism />
 				</div>
 

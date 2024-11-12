@@ -18,11 +18,11 @@ function SearchPromptsItem({
 			<Image
 				src={prompt.thumbnail || "/placeholder.svg"}
 				alt="prompt thumbnail"
-				className="rounded object-cover"
+				className="rounded border border-[#424242] object-cover"
 				width={64}
 				height={64}
 			/>
-			<div className="text-muted-foreground flex min-w-0 flex-col items-start justify-between">
+			<div className="text-muted-foreground flex min-w-0 flex-col items-start justify-between truncate">
 				<div className="text-muted-foreground truncate font-medium">
 					{prompt.title}
 				</div>
