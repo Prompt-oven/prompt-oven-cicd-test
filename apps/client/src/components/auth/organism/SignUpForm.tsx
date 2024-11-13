@@ -3,13 +3,13 @@
 import type { FieldValues } from "react-hook-form"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
-import { ErrorMessage } from "@hookform/error-message"
 import { Button } from "@repo/ui/button"
 import { CheckBox } from "@repo/ui/checkbox"
 import { Label } from "@repo/ui/label"
-import { useEffect, useState } from "react"
 import { signupSchema, signupSchemaObject } from "@/schema/auth.ts"
-import SignUpInput from "@/components/auth/atom/SignUpInput.tsx"
+import SignUpField from "@/components/auth/molecule/SignUpField.tsx"
+import SignUpTimerField from "@/components/auth/molecule/SignUpTimerField.tsx"
+import { useAuthTimer } from "@/hooks/auth/useAuthTimer.ts"
 
 // todo : 반복되는 컴포넌트 구조가 있는 부분은 공통화 시킬 수 있도록 리팩토링하기
 function SignUpForm() {
@@ -49,31 +49,7 @@ function SignUpForm() {
 	}
 
 	const emailValidationTime = 5 // 3 minutes in seconds
-	const [timeLeft, setTimeLeft] = useState<number | null>(null)
-	// eslint-disable-next-line no-undef -- This is a client-side only state
-	const [timerId, setTimerId] = useState<NodeJS.Timeout | null>(null)
-
-	useEffect(() => {
-		if (timeLeft === 0) {
-			if (timerId) clearInterval(timerId)
-			setTimerId(null)
-		}
-	}, [timeLeft, timerId])
-
-	const startTimer = () => {
-		if (timerId) clearInterval(timerId)
-		setTimeLeft(emailValidationTime)
-		const id = setInterval(() => {
-			setTimeLeft((prev) => (prev !== null && prev > 0 ? prev - 1 : 0))
-		}, 1000)
-		setTimerId(id)
-	}
-
-	const formatTime = (time: number) => {
-		const minutes = Math.floor(time / 60)
-		const seconds = time % 60
-		return `${minutes.toString().padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`
-	}
+	const [timeLeft, startTimer] = useAuthTimer({ emailValidationTime })
 
 	// nickname validation
 	const nickNameValidationHandler = () => {
@@ -95,130 +71,114 @@ function SignUpForm() {
 				onSubmit={handleSubmit(handleOnSubmitSuccess, handleOnSubmitFailure)}>
 				<div className="mb-11 flex h-fit w-full flex-col gap-5">
 					{/* Email */}
-					<div>
-						<Label
-							htmlFor="email"
-							className="text-[14px] font-normal leading-[22px] text-[#C1C1C1]">
-							Email
-						</Label>
-						<div className="relative flex min-w-full items-center gap-3">
-							<SignUpInput
-								containerProps={{ className: "w-full mt-1" }}
-								id={signUpSchemaKeys.email}
-								placeholder="Email"
-								{...register(signUpSchemaKeys.email)}
-							/>
-							<Button
-								disabled={Boolean(errors[signUpSchemaKeys.email]) || !email}
-								type="button"
-								onClick={emailValidationHandler}
-								className="h-[50px] w-[90px] rounded !bg-[#A913F9] text-white hover:!bg-[#A913F9]/90 disabled:bg-[#0F172A]/50">
-								Validate
-							</Button>
-						</div>
-					</div>
+					<SignUpField
+						showButton
+						labelText="Email"
+						labelProps={{
+							htmlFor: signUpSchemaKeys.email,
+						}}
+						buttonText="Validate"
+						buttonProps={{
+							disabled: Boolean(errors[signUpSchemaKeys.email]) || !email,
+							type: "button",
+							onClick: emailValidationHandler,
+						}}
+						inputProps={{
+							id: signUpSchemaKeys.email,
+							placeholder: "Email",
+							...register(signUpSchemaKeys.email),
+						}}
+						errorProps={{
+							name: signUpSchemaKeys.email,
+							errors,
+						}}
+					/>
 
 					{/* Email Validation */}
 					{timeLeft !== null ? (
-						<div className="relative">
-							<div className="relative flex min-w-full items-center gap-3">
-								<div className="relative flex-grow">
-									<SignUpInput
-										containerProps={{ className: "w-full" }}
-										id={signUpSchemaKeys.emailCode}
-										placeholder="Email Validation Code"
-										{...register(signUpSchemaKeys.emailCode)}
-									/>
-									<div className="absolute right-4 top-1/2 -translate-y-1/2 text-base text-[#C1C1C1]">
-										{formatTime(timeLeft)}
-									</div>
-								</div>
-								<Button
-									type="button"
-									disabled={
-										timeLeft === 0 ||
-										Boolean(errors[signUpSchemaKeys.emailCode]) ||
-										!emailCode
-									}
-									className="h-[50px] w-[90px] rounded !bg-[#A913F9] text-white hover:!bg-[#A913F9]/90 disabled:bg-[#0F172A]/50"
-									onClick={emailCodeValidationHandler}>
-									Check
-								</Button>
-							</div>
-						</div>
+						<SignUpTimerField
+							inputProps={{
+								id: signUpSchemaKeys.emailCode,
+								placeholder: "Email Validation Code",
+								...register(signUpSchemaKeys.emailCode),
+							}}
+							buttonProps={{
+								type: "button",
+								disabled:
+									timeLeft === 0 ||
+									Boolean(errors[signUpSchemaKeys.emailCode]) ||
+									!emailCode,
+								onClick: emailCodeValidationHandler,
+							}}
+							buttonText="Check"
+							errorProps={{
+								name: signUpSchemaKeys.emailCode,
+								errors,
+							}}
+							timeLeft={timeLeft}
+						/>
 					) : null}
 
 					{/* Password */}
-					<div>
-						<Label
-							htmlFor="password"
-							className="text-[14px] font-normal leading-[22px] text-[#C1C1C1]">
-							Password
-						</Label>
-						<SignUpInput
-							placeholder="Password"
-							type="password"
-							className="mt-1"
-							id={signUpSchemaKeys.password}
-							{...register(signUpSchemaKeys.password)}
-						/>
-						<ErrorMessage
-							name={signUpSchemaKeys.password}
-							errors={errors}
-							render={({ message }) => (
-								<p className="mt-1 text-red-500">{message}</p>
-							)}
-						/>
-					</div>
+					<SignUpField
+						labelText="Password"
+						labelProps={{
+							htmlFor: signUpSchemaKeys.password,
+						}}
+						inputProps={{
+							type: "password",
+							id: signUpSchemaKeys.password,
+							placeholder: "Password",
+							...register(signUpSchemaKeys.password),
+						}}
+						errorProps={{
+							name: signUpSchemaKeys.password,
+							errors,
+						}}
+					/>
 
 					{/* password confirm */}
-					<div>
-						<Label
-							htmlFor="password connfirm"
-							className="text-[14px] font-normal leading-[22px] text-[#C1C1C1]">
-							Password
-						</Label>
-						<SignUpInput
-							placeholder="Password Confirm"
-							type="password"
-							className="mt-1"
-							id={signUpSchemaKeys.passwordValidate}
-							{...register(signUpSchemaKeys.passwordValidate)}
-						/>
-						<ErrorMessage
-							name={signUpSchemaKeys.passwordValidate}
-							errors={errors}
-							render={({ message }) => (
-								<p className="mt-1 text-red-500">{message}</p>
-							)}
-						/>
-					</div>
+					<SignUpField
+						labelText="Password connfirm"
+						labelProps={{
+							htmlFor: "Password Confirm",
+						}}
+						inputProps={{
+							type: "password",
+							id: signUpSchemaKeys.passwordValidate,
+							placeholder: "Password Confirm",
+							...register(signUpSchemaKeys.passwordValidate),
+						}}
+						errorProps={{
+							name: signUpSchemaKeys.passwordValidate,
+							errors,
+						}}
+					/>
 
-					<div>
-						<Label
-							htmlFor="nickname"
-							className="text-[14px] font-normal leading-[22px] text-[#C1C1C1]">
-							Nickname
-						</Label>
-						<div className="relative flex min-w-full items-center gap-3">
-							<SignUpInput
-								type="text"
-								containerProps={{ className: "w-full mt-1" }}
-								id="nickname"
-								placeholder="Nickname"
-								{...register(signUpSchemaKeys.nickname)}
-							/>
-							<Button
-								disabled={
-									Boolean(errors[signUpSchemaKeys.nickname]) || !nickName
-								}
-								type="button"
-								className="h-[50px] w-[90px] rounded !bg-[#A913F9] text-white hover:!bg-[#A913F9]/90 disabled:bg-[#0F172A]/50"
-								onClick={nickNameValidationHandler}>
-								Validate
-							</Button>
-						</div>
-					</div>
+					{/* Nickname */}
+					<SignUpField
+						showButton
+						labelText="Nickname"
+						labelProps={{
+							htmlFor: signUpSchemaKeys.nickname,
+						}}
+						buttonText="Validate"
+						buttonProps={{
+							disabled: Boolean(errors[signUpSchemaKeys.nickname]) || !nickName,
+							type: "button",
+							onClick: nickNameValidationHandler,
+						}}
+						inputProps={{
+							type: "text",
+							id: signUpSchemaKeys.nickname,
+							placeholder: "Nickname",
+							...register(signUpSchemaKeys.nickname),
+						}}
+						errorProps={{
+							name: signUpSchemaKeys.nickname,
+							errors,
+						}}
+					/>
 
 					{/* Remember me and Forgot Password */}
 					<div className="flex items-center space-x-2">
