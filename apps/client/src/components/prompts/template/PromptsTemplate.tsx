@@ -22,7 +22,7 @@ export default function PromptsTemplate({
 						? [1, 0, 2].map((index) => (
 								<PrompToptItem
 									key={promptTop[index].productUUID}
-									productInfo={promptTop[index]}
+									promptTop={promptTop[index]}
 									rank={Number(index)}
 								/>
 							))
@@ -32,6 +32,7 @@ export default function PromptsTemplate({
 
 			<div className="my-16 flex flex-col gap-8 sm:flex-row">
 				<PromptsFilterSidebar />
+
 				<div className="flex w-full flex-col gap-8">
 					<PromptsItemFilter promptCount={promptList.length} />
 					<PromptstList promptList={promptList} />
