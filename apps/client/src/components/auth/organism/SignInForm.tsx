@@ -4,13 +4,10 @@ import Link from "next/link"
 import type { FieldValues } from "react-hook-form"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
-import { ErrorMessage } from "@hookform/error-message"
 import { Button } from "@repo/ui/button"
 import { CheckBox } from "@repo/ui/checkbox"
-import { Label } from "@repo/ui/label"
-import SignInInput from "@/components/signIn/atom/SignInInput.tsx"
 import { loginSchema } from "@/schema/auth.ts"
-
+import SignInField from "@/components/auth/molecule/SignInField.tsx"
 
 // todo : 반복되는 컴포넌트 구조가 있는 부분은 공통화 시킬 수 있도록 리팩토링하기
 function SignInForm() {
@@ -20,7 +17,7 @@ function SignInForm() {
 		formState: { errors },
 	} = useForm({
 		resolver: zodResolver(loginSchema),
-		mode: "onChange"
+		mode: "onChange",
 	})
 
 	const loginSchemaKeys = loginSchema.keyof().enum
@@ -36,7 +33,7 @@ function SignInForm() {
 	}
 
 	return (
-		<div className="gap-0 rounded border-none bg-[#252525] px-6 pb-12 pt-16 md:max-h-[780px] md:min-h-[780px] md:max-w-[650px] md:px-10 md:pb-16 md:pt-24">
+		<div className="select-none gap-0 rounded border-none bg-[#252525] px-6 pb-12 pt-16 md:max-h-[780px] md:min-h-[780px] md:max-w-[650px] md:px-10 md:pb-16 md:pt-24">
 			<div className="mb-5 flex h-fit flex-col justify-center gap-[5px] md:mb-14">
 				<h1 className="text-center text-4xl font-bold text-white">
 					Sign In To Your Account
@@ -49,37 +46,42 @@ function SignInForm() {
 			<form
 				onSubmit={handleSubmit(handleOnSubmitSuccess, handleOnSubmitFailure)}>
 				<div className="mb-11 flex h-fit w-full flex-col gap-5">
-					<div>
-						<Label htmlFor="email" className="text-[14px] font-normal leading-[22px] text-[#C1C1C1]">Email</Label>
-						<SignInInput
-							placeholder="Your Mail here"
-							className="mt-1"
-							{...register(loginSchemaKeys.email)}
-						/>
-						<ErrorMessage
-							name={loginSchemaKeys.email}
-							errors={errors}
-							render={(msg) => {
-								return <p className="mt-1 text-red-500">{msg.message}</p>
-							}}
-						/>
-					</div>
-					<div>
-						<Label htmlFor="password" className="text-[14px] font-normal leading-[22px] text-[#C1C1C1]">Password</Label>
-						<SignInInput
-							placeholder="Password"
-							type="password"
-							className="mt-1"
-							{...register(loginSchemaKeys.password)}
-						/>
-						<ErrorMessage
-							name={loginSchemaKeys.password}
-							errors={errors}
-							render={({ message }) => (
-								<p className="mt-1 text-red-500">{message}</p>
-							)}
-						/>
-					</div>
+					{/* Email */}
+					<SignInField
+						showButton
+						labelText="Email"
+						labelProps={{
+							htmlFor: loginSchemaKeys.email,
+						}}
+						inputProps={{
+							id: loginSchemaKeys.email,
+							placeholder: "Email",
+							...register(loginSchemaKeys.email),
+						}}
+						errorProps={{
+							name: loginSchemaKeys.email,
+							errors,
+						}}
+					/>
+
+					{/* Password */}
+					<SignInField
+						showButton
+						labelText="Password"
+						labelProps={{
+							htmlFor: loginSchemaKeys.password,
+						}}
+						inputProps={{
+							type: "password",
+							id: loginSchemaKeys.email,
+							placeholder: "Password",
+							...register(loginSchemaKeys.password),
+						}}
+						errorProps={{
+							name: loginSchemaKeys.password,
+							errors,
+						}}
+					/>
 
 					{/* Remember me and Forgot Password */}
 					<div className="flex items-center justify-between">
@@ -155,4 +157,4 @@ function SignInForm() {
 	)
 }
 
-export default SignInForm;
+export default SignInForm
