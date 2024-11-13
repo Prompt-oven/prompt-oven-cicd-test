@@ -10,6 +10,7 @@ const InputVariant = cva(
 			variant: {
 				default: "",
 				login: "h-[50px] bg-[#333333] border-none text-white/70 px-4",
+				signup: "h-[50px] bg-[#333333] border-none text-white/70 px-4",
 			},
 		},
 	},
