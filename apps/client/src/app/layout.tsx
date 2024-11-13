@@ -36,7 +36,8 @@ export default function RootLayout({
 			<head>
 				<meta name="mobile-web-app-capable" content="yes" />
 			</head>
-			<body className={`${sora.variable} ${roboto.variable} ${sora.className}`}>
+			<body
+				className={`${sora.variable} ${roboto.variable} ${sora.className} bg-[#111111]`}>
 				<MainHeader />
 				{children}
 			</body>

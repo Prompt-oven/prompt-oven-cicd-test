@@ -1,31 +1,28 @@
-import type { HTMLProps } from "react"
-import { forwardRef, useState } from "react"
+import { forwardRef, HTMLProps, useState } from "react"
 import { Eye, EyeOff } from "@repo/ui/lucide"
 import type { InputProps } from "@repo/ui/input"
 import { Input } from "@repo/ui/input"
 import ToggleIcon from "@/components/common/atom/ToggleIcon.tsx"
 
-interface SignInInputProps extends InputProps {
+interface SignUpInputProps extends InputProps {
 	containerProps?: HTMLProps<HTMLDivElement>
 }
 
-const SignInInput = forwardRef<HTMLInputElement, SignInInputProps>(
+const SignUpInput = forwardRef<HTMLInputElement, SignUpInputProps>(
 	({ type = "text", containerProps = {}, ...props }, ref) => {
 		const [showPassword, setShowPassword] = useState(false)
 
 		return (
-			<div
-				{...containerProps}
-				className={`relative ${containerProps.className ?? ""}`}>
+			<div {...containerProps} className={`relative ${containerProps.className ?? ""}`}>
 				<Input
 					ref={ref}
-					variant="login"
+					variant="signup"
 					type={
 						// eslint-disable-next-line no-nested-ternary -- This is a nested ternary
 						type !== "password" ? type : showPassword ? "text" : "password"
 					}
 					{...props}
-					className={`${type === "password" ? "pr-10" : ""} ${props.className}`}
+					className={`${type === "password" ? "pr-10" : ""} ${props.className ?? ""}`}
 				/>
 				{type === "password" && (
 					<ToggleIcon
@@ -40,5 +37,5 @@ const SignInInput = forwardRef<HTMLInputElement, SignInInputProps>(
 	},
 )
 
-SignInInput.displayName = "SignInInput"
-export default SignInInput
+SignUpInput.displayName = "SignUpInput"
+export default SignUpInput
