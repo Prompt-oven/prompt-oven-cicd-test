@@ -4,6 +4,7 @@ import "@repo/ui/styles.css"
 import type { Metadata } from "next"
 import { roboto, sora } from "@/app/fonts.ts"
 import MainHeader from "@/components/main/molecule/MainHeader.tsx"
+import { AuthSessionProvider } from "@/provider/authSessionProvider.tsx"
 
 export const metadata: Metadata = {
 	title: "Prompt Oven",
@@ -38,8 +39,10 @@ export default function RootLayout({
 			</head>
 			<body
 				className={`${sora.variable} ${roboto.variable} ${sora.className} bg-[#111111]`}>
-				<MainHeader />
-				{children}
+				<AuthSessionProvider>
+					<MainHeader />
+					{children}
+				</AuthSessionProvider>
 			</body>
 		</html>
 	)
