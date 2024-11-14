@@ -96,7 +96,7 @@ export default function PromptDetailReviewMore({
 							<span>All Reviews</span>
 						</DialogDescription>
 					</DialogHeader>
-					<ul className="custom-scrollbar grid max-h-[550px] grid-cols-1 gap-2 overflow-auto">
+					<ul className="grid max-h-[550px] grid-cols-1 gap-2 overflow-auto">
 						{productReview.content.map((review) => (
 							<PromptDetailReviewModal
 								key={review.id}
