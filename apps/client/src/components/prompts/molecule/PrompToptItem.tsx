@@ -43,6 +43,7 @@ export default function PrompToptItem({ promptTop, rank }: PrompToptItemProps) {
 					alt="Cyberpunk character"
 				/>
 			</div>
+
 			<div className="flex items-center justify-between rounded-b-lg border border-white/20 bg-gradient-to-r from-[#3F1C24] to-[#262038] p-1">
 				<div className="relative">
 					<Trophy className={`${trophyColor} h-5 w-5 md:h-7 md:w-7`} />
@@ -53,10 +54,6 @@ export default function PrompToptItem({ promptTop, rank }: PrompToptItemProps) {
 						</span>
 					</p>
 				</div>
-
-				<p className="mr-2 overflow-hidden text-ellipsis whitespace-nowrap text-xs font-normal text-white md:text-sm md:font-semibold">
-					{promptTop.productName}
-				</p>
 			</div>
 
 			{/* Top Prompts Description 보류 */}
