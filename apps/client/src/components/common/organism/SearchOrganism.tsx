@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react"
 import debounce from "lodash/debounce"
-import { useSearchActions } from "@/action/hooks/useSearchResults"
+import { useSearchActions } from "@/action/search/useSearchResults"
 import SearchInput from "../atom/SearchInput"
 import SearchDropdown from "../molecule/SearchDropdown"
 
