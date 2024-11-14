@@ -17,4 +17,5 @@ export {
 	ShoppingCartIcon,
 	ArrowUpCircleIcon,
 	ArrowDownCircleIcon,
+	Trophy,
 } from "lucide-react"
