@@ -1,6 +1,6 @@
 "use client"
 
-import React from "react"
+import React, { Suspense } from "react"
 import { useRouter } from "next/navigation"
 import type {
 	SearchResultCreatorType,
@@ -8,6 +8,7 @@ import type {
 } from "@/types/search/searchResultType"
 import SearchCreatorsItem from "../atom/SearchCreatorsItem"
 import SearchPromptsItem from "../atom/SearchPromptsItem"
+import SearchPromptsItemSkeleton from "../atom/SearchItemSkeleton"
 
 interface SearchDropdownProps {
 	creators: SearchResultCreatorType[]
@@ -22,11 +23,12 @@ function SearchDropdown({ creators, prompts }: SearchDropdownProps) {
 				<div className="text-m p-2 pt-3 text-white">Prompts</div>
 				{prompts.length > 0 &&
 					prompts.map((prompt) => (
-						<SearchPromptsItem
-							key={prompt.id}
-							prompt={prompt}
-							onClick={() => router.push(`/prompt-detail/${prompt.id}`)}
-						/>
+						<Suspense key={prompt.id} fallback={<SearchPromptsItemSkeleton />}>
+							<SearchPromptsItem
+								prompt={prompt}
+								onClick={() => router.push(`/prompt-detail/${prompt.id}`)}
+							/>
+						</Suspense>
 					))}
 			</div>
 			<hr className="mt-3" />
@@ -34,11 +36,12 @@ function SearchDropdown({ creators, prompts }: SearchDropdownProps) {
 				<div className="text-m p-2 pt-3 text-white">Creators</div>
 				{creators.length > 0 &&
 					creators.map((creator) => (
-						<SearchCreatorsItem
-							key={creator.id}
-							creator={creator}
-							onClick={() => router.push(`/profile/${creator.id}`)}
-						/>
+						<Suspense key={creator.id} fallback={<SearchPromptsItemSkeleton />}>
+							<SearchCreatorsItem
+								creator={creator}
+								onClick={() => router.push(`/profile/${creator.id}`)}
+							/>
+						</Suspense>
 					))}
 			</div>
 		</div>
