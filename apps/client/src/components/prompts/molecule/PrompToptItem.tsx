@@ -54,6 +54,9 @@ export default function PrompToptItem({ promptTop, rank }: PrompToptItemProps) {
 						</span>
 					</p>
 				</div>
+				<p className="mr-2 overflow-hidden text-ellipsis whitespace-nowrap text-[10px] font-normal text-white md:text-sm md:font-semibold">
+					{promptTop.productName}
+				</p>
 			</div>
 
 			{/* Top Prompts Description 보류 */}
