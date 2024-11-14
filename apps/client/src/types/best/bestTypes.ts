@@ -7,7 +7,10 @@ export interface BestCreatorDataTypes {
 }
 
 export interface BestCreatorCursorListTypes {
-	data: BestCreatorDataTypes[]
-	nextCursor: string | null // 다음 페이지가 없으면 null
-	hasNextPage: boolean
+	content: BestCreatorDataTypes[]
+	lastCreatedAt: string | null
+	lastId: string | null
+	hasNext: boolean
+	pageSize: number
+	page: number
 }
