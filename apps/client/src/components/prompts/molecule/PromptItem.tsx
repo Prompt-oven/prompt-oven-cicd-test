@@ -16,7 +16,7 @@ export default function PromptItem({ productInfo }: PromptItemProps) {
 	const isNew = PromptIsNew(productInfo.productRegistDate)
 
 	return (
-		<Card className="relative flex h-full w-full max-w-[180px] flex-col overflow-hidden rounded-md border-0 shadow-md">
+		<Card className="relative flex h-full w-full max-w-[180px] flex-col overflow-hidden rounded-md border-0 bg-[#111111] shadow-md">
 			<div className="relative h-[180px] lg:h-[150px] xl:h-[180px]">
 				<Image
 					src={productInfo.thumbnailUrl}

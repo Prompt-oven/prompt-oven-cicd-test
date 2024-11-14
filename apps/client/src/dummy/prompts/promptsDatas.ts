@@ -31,6 +31,26 @@ export const PromptsTopDatas: PromptsType[] = [
 		productPrice: 300,
 		productRegistDate: "2024-11-02",
 	},
+	{
+		productUUID: "pr-od-uc-t3",
+		thumbnailUrl:
+			"https://promptoven.s3.ap-northeast-2.amazonaws.com/dummy/profile/ProfileCard3.png",
+		productName: "Product3",
+		categoryName: "Rank4",
+		productStar: 5,
+		productPrice: 300,
+		productRegistDate: "2024-11-02",
+	},
+	{
+		productUUID: "pr-od-uc-t3",
+		thumbnailUrl:
+			"https://promptoven.s3.ap-northeast-2.amazonaws.com/dummy/profile/ProfileCard3.png",
+		productName: "Product3",
+		categoryName: "Rank5",
+		productStar: 5,
+		productPrice: 300,
+		productRegistDate: "2024-11-02",
+	},
 ]
 
 export const PromptsListDatas: PromptsType[] = [
