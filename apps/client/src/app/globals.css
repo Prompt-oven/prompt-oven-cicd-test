@@ -22,7 +22,7 @@
 }
 
 ::-webkit-scrollbar-thumb {
-	background-color: #68baf8; /* 스크롤바의 색상 */
+	background-color: #424040; /* 스크롤바의 색상 (검정색) */
 	border-radius: 10px; /* 스크롤바의 모서리 둥글게 */
 }
 
@@ -31,17 +31,17 @@
 }
 /* 기본 스크롤 바 END*/
 
-/* Review Scroll-bar START*/
+/* Profile Scroll-bar START*/
 .custom-scrollbar::-webkit-scrollbar {
 	width: 8px; /* 스크롤바의 너비 */
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb {
-	background-color: #424040; /* 스크롤바의 색상 (검정색) */
+	background-color: #68baf8; /* 스크롤바의 색상 */
 	border-radius: 10px; /* 스크롤바의 모서리 둥글게 */
 }
 
 .custom-scrollbar::-webkit-scrollbar-track {
 	background: rgba(0, 0, 0, 0.1); /* 스크롤바 트랙 색상 */
 }
-/* Review Scroll-bar END*/
+/* Profile Scroll-bar END*/
