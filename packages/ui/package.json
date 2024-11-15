@@ -24,7 +24,8 @@
 		"./dropdown-menu": "./src/DropdownMenu.tsx",
 		"./radio-group": "./src/RadioGroup.tsx",
 		"./rating-read-only": "./src/StarRatingReadOnly.tsx",
-		"./dialog": "./src/Dialog.tsx"
+		"./dialog": "./src/Dialog.tsx",
+		"./skeleton": "./src/Skeleton.tsx"
 	},
 	"license": "MIT",
 	"scripts": {
