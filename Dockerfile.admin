@@ -4,7 +4,7 @@ FROM node:20
 WORKDIR /prompt_oven_fe_admin
 
 # Copy package.json and pnpm-lock.yaml files
-COPY ./apps/admin/package.json ./apps/admin/pnpm-lock.yaml /prompt_oven_fe_admin/
+COPY ./apps/admin/package.json ./pnpm-lock.yaml /prompt_oven_fe_admin/
 
 # Install runtime dependencies
 RUN npm install -g pnpm@9.12.2
