@@ -14,12 +14,14 @@ RUN npm install -g pnpm@9.12.2 && pnpm install
 # Copy source files for all apps
 # COPY . .
 
-# Build the apps
-RUN pnpm build
-
 # Expose the necessary ports
 EXPOSE 3000
 EXPOSE 3001
+
+# Build the apps
+RUN pnpm --filter client run build
+RUN pnpm --filter admin run build
+
 
 # Start both applications
 CMD ["sh", "-c", "pnpm --filter client start & pnpm --filter admin start"]
