@@ -10,7 +10,8 @@ COPY ./apps/admin/.next /prompt_oven_fe_admin/.next
 COPY ./apps/admin/package.json /prompt_oven_fe_admin/package.json
 
 # Install runtime dependencies
-RUN npm install -g pnpm@9.12.2 && pnpm install --prod
+RUN npm install -g pnpm@9.12.2
+RUN pnpm install --prod
 
 # Expose the necessary port
 EXPOSE 3000
