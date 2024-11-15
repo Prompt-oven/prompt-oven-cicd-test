@@ -35,7 +35,6 @@ function SignUpForm() {
 		// console.log("login data - success : ", data)
 		const responseData = data as RegisterOAuthMemberResponse
 		await registerAuthMember(responseData)
-		alert("회원가입 성공!")
 		window.location.href = "/auth/sign-in"
 	}
 	const handleOnSubmitFailure = (error: FieldValues) => {
