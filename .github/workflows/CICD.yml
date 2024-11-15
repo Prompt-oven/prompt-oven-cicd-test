@@ -72,12 +72,14 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: client-build
+          include-hidden-files: 'true'
           path: ./apps/client/.next
       
       - name: Save admin build artifacts
         uses: actions/upload-artifact@v4
         with:
           name: admin-build
+          include-hidden-files: 'true'
           path: ./apps/admin/.next
   
   deploy:
