@@ -14,8 +14,8 @@ interface ProfileListProps {
 
 export default function ProfilePromptList({ listData }: ProfileListProps) {
 	return (
-		<>
-			<div className="grid grid-cols-2 gap-8 xl:grid-cols-3 2xl:grid-cols-4">
+		<div>
+			<div className="grid grid-cols-2 gap-8 lg:grid-cols-3 2xl:grid-cols-4">
 				{listData.length > 0
 					? listData.map((item) => (
 							<ProfilePromptItem key={item.productUUID} productInfo={item} />
@@ -24,7 +24,7 @@ export default function ProfilePromptList({ listData }: ProfileListProps) {
 			</div>
 
 			<ProfileLoadMore />
-		</>
+		</div>
 	)
 }
 

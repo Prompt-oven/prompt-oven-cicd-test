@@ -1,5 +1,3 @@
-"use client"
-
 import { RadioGroup, RadioGroupItem } from "@repo/ui/radio-group"
 import { Label } from "@repo/ui/label"
 
@@ -37,4 +35,3 @@ export function ProfileFilterCategory({
 		</RadioGroup>
 	)
 }
-

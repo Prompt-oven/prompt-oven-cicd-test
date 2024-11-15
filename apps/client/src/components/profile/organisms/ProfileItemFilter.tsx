@@ -1,8 +1,5 @@
 "use client"
 
-import { useState } from "react"
-import { Badge } from "@repo/ui/badge"
-import { Button } from "@repo/ui/button"
 import {
 	Select,
 	SelectContent,
@@ -10,25 +7,12 @@ import {
 	SelectTrigger,
 	SelectValue,
 } from "@repo/ui/select"
-import { X } from "@repo/ui/lucide"
 
 interface PromptFilterProps {
 	promptCount: number
 }
 
 export default function ProfileItemFilter({ promptCount }: PromptFilterProps) {
-	const [selectedFilters, setSelectedFilters] = useState<string[]>([
-		"In Auction",
-	])
-
-	const handleClearAll = () => {
-		setSelectedFilters([])
-	}
-
-	const handleRemoveFilter = (filter: string) => {
-		setSelectedFilters(selectedFilters.filter((f) => f !== filter))
-	}
-
 	return (
 		<div className="flex h-[60px] max-w-[1130px] items-center justify-between rounded-lg border border-white/20 bg-gradient-to-r from-[#3F1C24] to-[#262038] px-4">
 			{/* Left Section */}
@@ -36,32 +20,6 @@ export default function ProfileItemFilter({ promptCount }: PromptFilterProps) {
 				<span className="font-mulish text-sm text-white">
 					{promptCount} Results
 				</span>
-
-				<div className="flex items-center gap-2">
-					{selectedFilters.map((filter) => (
-						<Badge
-							key={filter}
-							variant="secondary"
-							className="flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-white">
-							{filter}
-							<button
-								type="button"
-								onClick={() => handleRemoveFilter(filter)}
-								className="opacity-50 transition-opacity hover:opacity-100">
-								<X className="h-4 w-4" />
-							</button>
-						</Badge>
-					))}
-
-					{selectedFilters.length > 0 && (
-						<Button
-							variant="link"
-							onClick={handleClearAll}
-							className="font-mulish px-0 text-sm text-[#2CC8F6] hover:text-[#2CC8F6]/80">
-							Clear All
-						</Button>
-					)}
-				</div>
 			</div>
 
 			{/* Right Section */}

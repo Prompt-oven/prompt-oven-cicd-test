@@ -5,7 +5,7 @@ import { Search } from "@repo/ui/lucide"
 import { Button } from "@repo/ui/button"
 import { Input } from "@repo/ui/input"
 
-interface SearchInputProps {
+interface SearchInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
 	width?: string
 	placeholder?: string
 }
@@ -13,6 +13,7 @@ interface SearchInputProps {
 export default function SearchInput({
 	width,
 	placeholder = "Search items, collection or user",
+	...props
 }: SearchInputProps) {
 	const [shortcut, setShortcut] = useState("⌘K")
 	const inputRef = useRef<HTMLInputElement>(null)
@@ -43,12 +44,8 @@ export default function SearchInput({
 				ref={inputRef}
 				type="text"
 				placeholder={placeholder}
-				className="
-					h-[50px] flex-grow rounded-lg
-					bg-[#1B1B1B] py-[15px] !pl-5 !pr-[120px] text-sm text-[#969696]
-					placeholder-[#969696] placeholder:font-normal
-					focus:outline-none focus:ring-2 focus:ring-[#666666]
-				"
+				{...props}
+				className="h-[50px] flex-grow rounded-lg bg-[#1B1B1B] py-[15px] !pl-5 !pr-[120px] text-sm text-[#969696] placeholder-[#969696] placeholder:font-normal focus:outline-none focus:ring-2 focus:ring-[#666666]"
 				style={{
 					fontFamily: "Roboto, sans-serif",
 					fontSize: "15px",
@@ -61,7 +58,7 @@ export default function SearchInput({
 				<Button
 					variant="outline"
 					size="sm"
-					className=" border-[#666666] bg-black text-white hover:bg-[#333333] hover:text-white">
+					className="border-[#666666] bg-black text-white hover:bg-[#333333] hover:text-white">
 					<span
 						className="text-sm font-semibold"
 						style={{ fontFamily: "Sora, sans-serif" }}>

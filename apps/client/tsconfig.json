@@ -9,7 +9,11 @@
 			"@/shared/*": ["./src/shared/*"],
 			"@/components/*": ["./src/components/*"],
 			"@/assets/*": ["./assets/*"],
-			"@/lib/*": ["./src/lib/*"]
+			"@/lib/*": ["./src/lib/*"],
+			"@/hooks/*": ["./src/hooks/*"],
+			"@/store/*": ["./src/store/*"],
+			"@/types/*": ["./src/types/*"],
+			"@/config/*": ["./src/config/*"]
 		}
 	},
 	"include": ["svgr.d.ts", "next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],

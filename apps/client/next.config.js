@@ -30,6 +30,24 @@ module.exports = {
 				port: "",
 				pathname: "/client/**",
 			},
+			{
+				protocol: "https",
+				hostname: "firebasestorage.googleapis.com",
+				port: "",
+				pathname: "/v0/b/**",
+			},
+			{
+				protocol: "https",
+				hostname: "assets.promptbase.com",
+				port: "",
+				pathname: "/**",
+			},
+			{
+				protocol: "https",
+				hostname: "hebbkx1anhila5yf.public.blob.vercel-storage.com",
+				port: "",
+				pathname: "/**",
+			},
 		],
 	},
 }
