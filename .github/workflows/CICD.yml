@@ -2,10 +2,10 @@ name: Node.js CI/CD
 
 on:
   push:
-    branches: [ "dev", "main" ]
+    branches: [ "main" ]
   pull_request:
-    types: [closed]
-    branches: [ "dev", "main" ]
+    types: [closed, reopened]
+    branches: [ "main" ]
 
 jobs:
   build:
@@ -13,7 +13,7 @@ jobs:
     
     strategy:
       matrix:
-        node-version: [ 20.x, 22.x ]
+        node-version: [ 20.x ]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
     
     steps:
@@ -67,8 +67,9 @@ jobs:
       - name: Save monorepo build artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: monorepo-build
+          name: monorepo-build-${{ github.sha }}
           path: .
+          retention-days: 7  # 7일 후 아티팩트 삭제
   
   deploy:
     runs-on: ubuntu-latest
