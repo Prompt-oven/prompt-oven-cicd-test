@@ -1,5 +1,5 @@
 # Base image with Node.js 22 for running the production app
-FROM node:20
+FROM node:22
 
 WORKDIR /admin-app
 
