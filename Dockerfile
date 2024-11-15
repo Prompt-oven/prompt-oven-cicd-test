@@ -15,7 +15,7 @@ RUN npm install -g pnpm@9.12.2 && pnpm install
 # COPY . .
 
 # Build the apps
-RUN pnpm turbo run build
+RUN pnpm build
 
 # Expose the necessary ports
 EXPOSE 3000
