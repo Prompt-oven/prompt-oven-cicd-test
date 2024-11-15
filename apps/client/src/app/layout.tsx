@@ -1,9 +1,10 @@
+import React from "react"
 import "./globals.css"
 import "@repo/ui/styles.css"
 import type { Metadata } from "next"
-import { Inter } from "next/font/google"
-
-const inter = Inter({ subsets: ["latin"] })
+import { roboto, sora } from "@/app/fonts.ts"
+import MainHeader from "@/components/main/molecule/MainHeader.tsx"
+import { AuthSessionProvider } from "@/provider/authSessionProvider.tsx"
 
 export const metadata: Metadata = {
 	title: "Prompt Oven",
@@ -30,10 +31,19 @@ export default function RootLayout({
 	children,
 }: {
 	children: React.ReactNode
-}): JSX.Element {
+}) {
 	return (
 		<html lang="en">
-			<body className={inter.className}>{children}</body>
+			<head>
+				<meta name="mobile-web-app-capable" content="yes" />
+			</head>
+			<body
+				className={`${sora.variable} ${roboto.variable} ${sora.className} bg-[#111111]`}>
+				<AuthSessionProvider>
+					<MainHeader />
+					{children}
+				</AuthSessionProvider>
+			</body>
 		</html>
 	)
 }
