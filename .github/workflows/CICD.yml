@@ -2,10 +2,10 @@ name: Node.js CI/CD
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "dev", "main" ]
   pull_request:
-    types: [closed, reopened]
-    branches: [ "main" ]
+    types: [closed]
+    branches: [ "dev", "main" ]
 
 jobs:
   build:
@@ -13,11 +13,11 @@ jobs:
     
     strategy:
       matrix:
-        node-version: [ 20.x ]
+        node-version: [ 20.x, 22.x ]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
     
     steps:
-      - name: checkout code
+      - name: Checkout code
         uses: actions/checkout@v4
       
       - name: Setup Node.js ${{ matrix.node-version }}
@@ -54,7 +54,7 @@ jobs:
           restore-keys: |
             ${{ matrix.node-version }}-${{ runner.os }}-turbo-
       
-      - name: make .env for proper build
+      - name: Make .env for proper build
         run: |
           touch .env
           echo '${{ secrets.PROPERTIES_PROD }}' > apps/client/.env
@@ -63,6 +63,12 @@ jobs:
       
       - name: Build apps
         run: pnpm turbo run build
+      
+      - name: Save monorepo build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: monorepo-build
+          path: .
   
   deploy:
     runs-on: ubuntu-latest
@@ -72,8 +78,14 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
       
+      - name: Download monorepo build artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: monorepo-build
+          path: .
+      
       - name: Docker build for all apps
-        run: docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/fe-prompt-oven .
+        run: docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/prompt_oven_fe .
       
       - name: Docker login
         uses: docker/login-action@v3
@@ -82,7 +94,7 @@ jobs:
           password: ${{ secrets.DOCKERHUB_PASSWORD }}
       
       - name: Docker push
-        run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/fe-prompt-oven
+        run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/prompt_oven_fe
       
       - name: Deploy to EC2
         uses: appleboy/ssh-action@v0.1.6
@@ -93,11 +105,14 @@ jobs:
           timeout: 60s
           script: |
             echo "Stopping existing container..."
-            sudo docker stop fe-prompt-oven || true
-            sudo docker rm fe-prompt-oven || true
+            sudo docker stop prompt_oven_fe || true
+            sudo docker rm prompt_oven_fe || true
             
             echo "Pulling latest image..."
-            sudo docker pull ${{ secrets.DOCKERHUB_USERNAME }}/fe-prompt-oven:latest
+            sudo docker pull ${{ secrets.DOCKERHUB_USERNAME }}/prompt_oven_fe:latest
             
             echo "Running container..."
-            sudo docker run -d --name fe-prompt-oven -p 3000:3000 -p 3001:3001 ${{ secrets.DOCKERHUB_USERNAME }}/fe-prompt-oven:latest
+            sudo docker run -d --name prompt_oven_fe -p 3000:3000 -p 3001:3001 ${{ secrets.DOCKERHUB_USERNAME }}/prompt_oven_fe:latest
+            
+            echo "Cleaning up unused Docker images..."
+            sudo docker image prune -f

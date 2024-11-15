@@ -1,33 +1,21 @@
-FROM node:22
-
-WORKDIR /app
-
-RUN npm install -g pnpm@9.12.3
-
-COPY . .
-
-RUN pnpm install
-
-RUN pnpm turbo build
-
-CMD pnpm -F=web start
-
-
 # Base image with Node.js 22 for running the production app
 FROM node:20
 
 WORKDIR /prompt_oven_fe
 
+# Copy package.json and pnpm-lock.yaml files for all apps
+COPY package.json pnpm-lock.yaml ./
+COPY apps/client/package.json apps/client/pnpm-lock.yaml ./apps/client/
+COPY apps/admin/package.json apps/admin/pnpm-lock.yaml ./apps/admin/
+
 # Install pnpm and runtime dependencies
-RUN npm install -g pnpm@9.12.2
+RUN npm install -g pnpm@9.12.2 && pnpm install
 
 # Copy source files for all apps
 COPY . .
 
-RUN pnpm install
-
 # Build the apps
-RUN pnpm turbo build
+RUN pnpm turbo run build
 
 # Expose the necessary ports
 EXPOSE 3000
