@@ -12,7 +12,7 @@ COPY apps/admin/package.json ./apps/admin/
 RUN npm install -g pnpm@9.12.2 && pnpm install
 
 # Copy source files for all apps
-COPY . .
+# COPY . .
 
 # Build the apps
 RUN pnpm turbo run build
