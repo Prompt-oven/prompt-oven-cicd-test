@@ -67,7 +67,7 @@ jobs:
       - name: Save monorepo build artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: monorepo-build-${{ github.sha }}
+          name: monorepo-build
           path: .
           overwrite: 'true'
   
