@@ -5,8 +5,8 @@ WORKDIR /prompt_oven_fe
 
 # Copy package.json and pnpm-lock.yaml files for all apps
 COPY package.json pnpm-lock.yaml ./
-COPY apps/client/package.json apps/client/pnpm-lock.yaml ./apps/client/
-COPY apps/admin/package.json apps/admin/pnpm-lock.yaml ./apps/admin/
+COPY apps/client/package.json ./apps/client/
+COPY apps/admin/package.json ./apps/admin/
 
 # Install pnpm and runtime dependencies
 RUN npm install -g pnpm@9.12.2 && pnpm install
