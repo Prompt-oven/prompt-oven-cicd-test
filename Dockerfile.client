@@ -1,18 +1,18 @@
 # Base image with Node.js 22 for running the production app
 FROM node:20
 
-WORKDIR /prompt_oven_fe_client
+WORKDIR /client-app
+
+# Copy the build artifacts from GitHub Actions (already downloaded to the workspace)
+COPY ./apps/client/.next /client-app/.next
 
 # Copy package.json and pnpm-lock.yaml files
-COPY ./apps/client/package.json pnpm-lock.yaml /prompt_oven_fe_client/
+COPY ./apps/client/package.json pnpm-lock.yaml /client-app/
 
 # Install runtime dependencies
 RUN npm install -g pnpm@9.12.2
-RUN pnpm store prune
 RUN pnpm install
 
-# Copy the build artifacts from GitHub Actions (already downloaded to the workspace)
-COPY ./apps/client/.next /prompt_oven_fe_client/.next
 
 # Expose the necessary port
 EXPOSE 3001
