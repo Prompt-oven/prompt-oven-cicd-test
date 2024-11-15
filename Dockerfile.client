@@ -3,11 +3,11 @@ FROM node:20
 
 WORKDIR /prompt_oven_fe_client
 
+# Copy package.json and pnpm-lock.yaml files
+COPY ./apps/client/package.json ./apps/client/pnpm-lock.yaml /prompt_oven_fe_client/
+
 # Copy the build artifacts from GitHub Actions (already downloaded to the workspace)
 COPY ./apps/client/.next /prompt_oven_fe_client/.next
-
-# Copy package.json file
-COPY ./apps/client/package.json /prompt_oven_fe_client/package.json
 
 # Install runtime dependencies
 RUN npm install -g pnpm@9.12.2
