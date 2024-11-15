@@ -117,7 +117,7 @@ jobs:
       - name: Deploy client to EC2
         uses: appleboy/ssh-action@v0.1.6
         with:
-          host: ${{ secrets.EC2_HOST }}
+          host: ${{ secrets.EC2_FE_HOST }}
           username: ubuntu
           key: ${{ secrets.EC2_KEY }}
           timeout: 60s
@@ -135,7 +135,7 @@ jobs:
       - name: Deploy admin to EC2
         uses: appleboy/ssh-action@v0.1.6
         with:
-          host: ${{ secrets.EC2_HOST }}
+          host: ${{ secrets.EC2_FE_HOST }}
           username: ubuntu
           key: ${{ secrets.EC2_KEY }}
           timeout: 60s
