@@ -2,10 +2,10 @@ name: Node.js CI/CD
 
 on:
   push:
-    branches: [ "dev", "main" ]
+    branches: [ "main" ]
   pull_request:
     types: [closed]
-    branches: [ "dev", "main" ]
+    branches: [ "main" ]
 
 jobs:
   build:
