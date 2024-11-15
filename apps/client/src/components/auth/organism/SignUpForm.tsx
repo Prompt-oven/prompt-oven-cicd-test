@@ -33,6 +33,7 @@ function SignUpForm() {
 	const handleOnSubmitSuccess = async (data: FieldValues) => {
 		// eslint-disable-next-line no-console -- This is a client-side only log
 		// console.log("login data - success : ", data)
+		//
 		const responseData = data as RegisterOAuthMemberResponse
 		await registerAuthMember(responseData)
 		window.location.href = "/auth/sign-in"
