@@ -1,4 +1,4 @@
-import type { RegisterOAuthMemberRequest, RegisterOAuthMemberResponse } from "@/types/auth/memberRegisterType.ts"
+import { RegisterOAuthMemberRequest, RegisterOAuthMemberResponse } from "@/types/auth/memberRegisterType.ts"
 import { actionHandler } from "@/action/actionHandler.ts"
 
 export const registerOauthMember = async (reqBody: RegisterOAuthMemberRequest) => {
@@ -16,13 +16,19 @@ export const registerOauthMember = async (reqBody: RegisterOAuthMemberRequest) =
 	})
 }
 
-export const registerAuthMember = async (data: RegisterOAuthMemberResponse): Promise<Response> => {
-	return fetch("/v1/auth/register",{
-		method: "POST",
-		headers: {
-			"Content-Type":"application/json",
+export const registerAuthMember = async (
+	data: RegisterOAuthMemberResponse,
+): Promise<Response> => {
+	return actionHandler<Response>({
+		name: "registerAuthMember",
+		url: "/v1/auth/register",
+		options: {
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify(data),
+			cache: "no-cache",
 		},
-		body: JSON.stringify(data),
-		cache: "no-cache"
-	})
-}
+	});
+};
