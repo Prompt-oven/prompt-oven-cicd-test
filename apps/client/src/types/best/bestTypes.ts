@@ -2,7 +2,7 @@ export interface BestCreatorDataTypes {
 	id: number
 	name: string
 	rank: number
-	rankChange: number
+	rankChange?: number
 	image: string
 }
 
