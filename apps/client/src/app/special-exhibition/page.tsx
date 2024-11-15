@@ -1,4 +1,4 @@
-import { SignInDialog } from "@/components/signIn/organism/SignInDialog.tsx"
+import { SignInDialog } from "@/components/signIn/organism/SignInDialo.tsx"
 
 export default function Page() {
 	return (
@@ -7,3 +7,4 @@ export default function Page() {
 		</section>
 	)
 }
+
